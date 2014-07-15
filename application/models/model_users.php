@@ -38,4 +38,13 @@ class Model_users extends CI_Model{
         else return false;
 
     }
+
+    public function add_temp_user($key)
+    {
+        $data = array(
+            'email' => $this->input->post('email'),
+
+        );
+    }
+
 }

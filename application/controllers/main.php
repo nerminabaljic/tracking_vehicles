@@ -113,6 +113,62 @@ class Main extends CI_Controller {
         $this->session->sess_destroy();
         redirect('main/login');
     }
+
+
+
+    public  function invite_validation(){
+
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+
+        $this->form_validation->set_rules('first_name', 'First Name', 'required|trim');
+
+        $this->form_validation->set_rules('last_name', 'Last Name', 'required|trim');
+
+        $this->form_validation->set_message('is_unique', "That email address already exists");
+
+
+
+
+        if ($this->form_validation->run()) {
+            $key = md5(uniqid());
+
+            $this->load->library('email',array('mailtype'=>'html'));
+            $this->load->model('model_users');
+
+            $this->email->from('me@mywebsite.com',"Elvir");
+            $this->email->to($this->input->post('email'));
+            $this->email->subject("Invite to SingUp");
+
+            $message = "<p><a href='" . base_url() . "main/register_user/$key'>Click here</a> to activate your account";
+
+            $this->email->message($message);
+
+            if($this->model_users->add_temp_user($key)) {
+                if ($this->email->send()) {
+                    echo "The email has been sent!";
+                } else
+                    echo "could not send the email";
+            }
+            else echo "problem adding to database";
+
+
+
+        }
+        else {
+            $this->load->view('Invite');
+
+        }
+
+
+    }
+
+    public function Invite()
+    {
+        $this->load->view('Invite');
+    }
+
 }
 
 /* End of file main.php */
