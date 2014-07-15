@@ -1,0 +1,37 @@
+body {
+background: #B8B8B8;
+max-width: 100%;
+height: auto;
+position: absolut;
+padding-top: 10px;
+font-family: Times New Roman;
+}
+#container {
+	text-align: center;
+	margin: 0 auto;
+	max-width: 800px;
+	width: 80%;
+	height: auto;
+	border: 2px solid #000000;
+	background: #FFFFFF	;
+	box-shadow: 20px 20px 10px #A8A8A8;
+}
+img{
+	text-align: center;
+	max-width: 100%;
+	height: auto;
+	width: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
