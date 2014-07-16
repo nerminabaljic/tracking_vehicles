@@ -17,7 +17,6 @@ class Model_users extends CI_Model{
 
 
     }
-
     public function google_auth($email){
         $this->db->where('email', $email);
 
@@ -42,7 +41,7 @@ class Model_users extends CI_Model{
     public function add_temp_user($key)
     {
         $data = array(
-            'email' => $this->input->post('email'),
+            'email' => $this->input->post('email')
 
         );
     }

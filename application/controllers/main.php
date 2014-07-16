@@ -116,11 +116,12 @@ class Main extends CI_Controller {
 
 
 
-    public  function invite_validation(){
+    public  function invite_validation()
+    {
 
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email');
 
         $this->form_validation->set_rules('first_name', 'First Name', 'required|trim');
 
@@ -129,15 +130,14 @@ class Main extends CI_Controller {
         $this->form_validation->set_message('is_unique', "That email address already exists");
 
 
-
-
         if ($this->form_validation->run()) {
+
             $key = md5(uniqid());
 
-            $this->load->library('email',array('mailtype'=>'html'));
+            $this->load->library('email', array('mailtype' => 'html'));
             $this->load->model('model_users');
 
-            $this->email->from('me@mywebsite.com',"Elvir");
+            $this->email->from('me@mywebsite.com', "Elvir");
             $this->email->to($this->input->post('email'));
             $this->email->subject("Invite to SingUp");
 
@@ -145,23 +145,17 @@ class Main extends CI_Controller {
 
             $this->email->message($message);
 
-            if($this->model_users->add_temp_user($key)) {
+            //send email   to the user
+            if ($this->model_users->add_temp_user($key)) {
                 if ($this->email->send()) {
                     echo "The email has been sent!";
-                } else
+                } else {
                     echo "could not send the email";
-            }
-            else echo "problem adding to database";
-
-
-
+                }
+            } else
+                echo "problem adding to database";
         }
-        else {
-            $this->load->view('Invite');
-
-        }
-
-
+        else $this->load->view('Invite');
     }
 
     public function Invite()
