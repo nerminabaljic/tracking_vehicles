@@ -38,7 +38,7 @@
 
         <div class="input-group">
             <span class="input-group-addon">Last name</span>
-            <?php echo form_input('first_name', $this->input->post('first_name'),'class="form-control"'); ?>
+            <?php echo form_input('last_name', $this->input->post('last_name'),'class="form-control"'); ?>
         </div>
 <br>
         <div class="input-group">
