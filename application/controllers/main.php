@@ -116,32 +116,65 @@ class Main extends CI_Controller {
 
 
 
-    public  function invite_validation()
+    /*public function  add_user_temp()
+    {
+        $key = md5(uniqid());
+
+
+        $invite_user = array();
+
+
+        $invite_user['email'][] = $this->input->post('email');
+        $invite_user['first_name'][] = $this->input->post('first_name');
+        $invite_user['last_name'][] = $this->input->post('last_name');
+        $invite_user['key'][] = $key;
+
+
+        $this->session->set_userdata('invite_user',$invite_user);
+
+
+
+        $this->load->view('Invite');
+    }
+*/
+
+    public  function  test(){
+        $this->load->view('test');
+
+    }
+    public  function invite_all()
     {
 
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email');
+        $last_name = $_POST['last_name'];
+        $first_name = $_POST['first_name'];
+        $email = $_POST['email'];
 
-        $this->form_validation->set_rules('first_name', 'First Name', 'required|trim');
+    // za svaki ovaj gore for petljom spremi u bazu i posalji mail
 
-        $this->form_validation->set_rules('last_name', 'Last Name', 'required|trim');
-
-        $this->form_validation->set_message('is_unique', "That email address already exists");
-
-
-        if ($this->form_validation->run()) {
+        for ($i=0;$i<=count($last_name);$i++) {
 
             $key = md5(uniqid());
 
             $this->load->library('email', array('mailtype' => 'html'));
             $this->load->model('model_users');
 
-            $this->email->from('me@mywebsite.com', "Elvir");
+            $config = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => 'elvir.tabakovic.92',
+                'smtp_pass' => '',
+                'mailtype'  => 'html',
+                'charset'   => 'iso-8859-1'
+            );
+            $this->load->library('email', $config);
+
             $this->email->to($this->input->post('email'));
             $this->email->subject("Invite to SingUp");
 
-            $message = "<p><a href='" . base_url() . "main/register_user/$key'>Click here</a> to activate your account";
+            $message = "<p><a href='" . base_url() . "main/invite_user/$key'>Click here</a> to activate your account";
 
             $this->email->message($message);
 
@@ -155,14 +188,20 @@ class Main extends CI_Controller {
             } else
                 echo "problem adding to database";
         }
-        else $this->load->view('Invite');
+
+
     }
 
+
+    public  function  invite_user($key)
+    {
+
+    }
     public function Invite()
     {
+
         $this->load->view('Invite');
     }
-
 }
 
 /* End of file main.php */
