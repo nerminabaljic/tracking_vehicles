@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'gps_vozila';
+$db['default']['hostname'] = 'udruga.neosoft.ba';
+$db['default']['username'] = 'intera1';
+$db['default']['password'] = 'J4pr1ka1PapR4K';
+$db['default']['database'] = 'intera1';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
