@@ -145,15 +145,11 @@ class Main extends CI_Controller {
     public  function invite_all()
     {
 
-        $this->load->library('form_validation');
-
         $last_name = $_POST['last_name'];
         $first_name = $_POST['first_name'];
         $email = $_POST['email'];
 
-    // za svaki ovaj gore for petljom spremi u bazu i posalji mail
-
-        for ($i=0;$i<=count($email);$i++) {
+        for ($i=0;$i<count($email);$i++) {
 
             echo 'unutar for petlje sam ';
             $key = md5(uniqid());
@@ -165,7 +161,7 @@ class Main extends CI_Controller {
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.googlemail.com',
                 'smtp_port' => 465,
-                'smtp_user' => 'elvir.tabakovic.92@gmail.com',
+                'smtp_user' => 'elvir.tabakovic.92',
                 'smtp_pass' => '5.11.(L).',
                 'mailtype'  => 'html',
                 'charset'   => 'iso-8859-1'
@@ -173,6 +169,7 @@ class Main extends CI_Controller {
             $this->load->library('email', $config);
 
             $this->email->to($email[$i]);
+            echo 'email je : ' . $email[$i];
             $this->email->subject("Invite to SingUp");
 
             $message = "<p><a href='" . base_url() . "main/invite_user/$key'>Click here</a> to activate your account";
@@ -180,7 +177,7 @@ class Main extends CI_Controller {
             $this->email->message($message);
 
             //send email   to the user
-            if ($this->model_users->add_temp_user($key)) {
+            if ($this->model_users->add_temp_user($key,$email[$i],$first_name[$i],$last_name[$i])) {
                 if ($this->email->send()) {
                     echo "The email has been sent!";
                 } else {
