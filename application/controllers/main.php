@@ -162,7 +162,7 @@ class Main extends CI_Controller {
                 'smtp_host' => 'ssl://smtp.googlemail.com',
                 'smtp_port' => 465,
                 'smtp_user' => 'elvir.tabakovic.92',
-                'smtp_pass' => '5.11.(L).',
+                'smtp_pass' => '',
                 'mailtype'  => 'html',
                 'charset'   => 'iso-8859-1'
             );
