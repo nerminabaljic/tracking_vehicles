@@ -153,8 +153,9 @@ class Main extends CI_Controller {
 
     // za svaki ovaj gore for petljom spremi u bazu i posalji mail
 
-        for ($i=0;$i<=count($last_name);$i++) {
+        for ($i=0;$i<=count($email);$i++) {
 
+            echo 'unutar for petlje sam ';
             $key = md5(uniqid());
 
             $this->load->library('email', array('mailtype' => 'html'));
@@ -164,14 +165,14 @@ class Main extends CI_Controller {
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.googlemail.com',
                 'smtp_port' => 465,
-                'smtp_user' => 'elvir.tabakovic.92',
-                'smtp_pass' => '',
+                'smtp_user' => 'elvir.tabakovic.92@gmail.com',
+                'smtp_pass' => '5.11.(L).',
                 'mailtype'  => 'html',
                 'charset'   => 'iso-8859-1'
             );
             $this->load->library('email', $config);
 
-            $this->email->to($this->input->post('email'));
+            $this->email->to($email[$i]);
             $this->email->subject("Invite to SingUp");
 
             $message = "<p><a href='" . base_url() . "main/invite_user/$key'>Click here</a> to activate your account";
