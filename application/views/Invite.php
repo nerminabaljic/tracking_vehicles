@@ -85,6 +85,25 @@
 
 
 
+<?php
+echo form_open('main/send_mail');
+
+$data = array(
+    'name'        => 'email_to',
+    'id'          => 'email_to',
+    'value'       => 'test',
+    'maxlength'   => '100',
+    'size'        => '50',
+    'style'       => 'width:50%',
+);
+
+echo form_input($data);
+
+echo form_submit('mysubmit', 'Submit Post!');
+?>
+
+
+<?php echo form_close() ?>
 </div> <!-- container -->
 
 

@@ -108,42 +108,14 @@ class Main extends CI_Controller {
             return false;
         }
     }
-
      public function logout(){
         $this->session->sess_destroy();
         redirect('main/login');
     }
 
-
-
-    /*public function  add_user_temp()
-    {
-        $key = md5(uniqid());
-
-
-        $invite_user = array();
-
-
-        $invite_user['email'][] = $this->input->post('email');
-        $invite_user['first_name'][] = $this->input->post('first_name');
-        $invite_user['last_name'][] = $this->input->post('last_name');
-        $invite_user['key'][] = $key;
-
-
-        $this->session->set_userdata('invite_user',$invite_user);
-
-
-
-        $this->load->view('Invite');
-    }
-*/
-
-    public  function  test(){
-        $this->load->view('test');
-
-    }
     public  function invite_all()
     {
+
 
         $last_name = $_POST['last_name'];
         $first_name = $_POST['first_name'];
@@ -161,7 +133,7 @@ class Main extends CI_Controller {
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.googlemail.com',
                 'smtp_port' => 465,
-                'smtp_user' => 'elvir.tabakovic.92',
+                'smtp_user' => '',
                 'smtp_pass' => '',
                 'mailtype'  => 'html',
                 'charset'   => 'iso-8859-1'
@@ -172,8 +144,9 @@ class Main extends CI_Controller {
             echo 'email je : ' . $email[$i];
             $this->email->subject("Invite to SingUp");
 
-            $message = "<p><a href='" . base_url() . "main/invite_user/$key'>Click here</a> to activate your account";
-
+            $message = "<p>Korisnicko ime : ". $email[$i]."</p></br>" ;
+            $message .= "<p>Lozinka je : test1 </p></br>" ;
+            $message .="<p>Link za aktivaciju vaseg racuna je : <a href='" . base_url() . "main/invite_user/$key'>Ovdje</a>";
             $this->email->message($message);
 
             //send email   to the user
@@ -189,10 +162,18 @@ class Main extends CI_Controller {
 
 
     }
-
-
     public  function  invite_user($key)
     {
+        $this->load->model('model_users');
+        if ($this->model_users->is_key_valid($key)) {
+            if($this->model_users->add_user($key))
+            {
+                echo "Uspjesno aktiviran racun .";
+            }
+            else echo "greska pri aktivaciji korisnickog racuna , pokusajte ponovo.";
+        }
+        else echo "pogresan aktivacisjki kljuc.";
+
 
     }
     public function Invite()
