@@ -176,6 +176,14 @@ class Main extends CI_Controller {
 
 
     }
+    public function  invited_user()
+    {
+        $this->load->model('model_users');
+
+        $data['query'] = $this->model_users->view_invited_user();
+        $this->load->view('Invited', $data);
+    }
+
     public function Invite()
     {
 

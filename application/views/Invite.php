@@ -71,39 +71,11 @@
                 </table>
             </div>
         </div>
-
-
-
         <div class="btn-group">
                 <button class="btn btn-default" id="submit-button">Submit</button>
 
             </div>
-
-
-
-        </div>
-
-
-
-<?php
-echo form_open('main/send_mail');
-
-$data = array(
-    'name'        => 'email_to',
-    'id'          => 'email_to',
-    'value'       => 'test',
-    'maxlength'   => '100',
-    'size'        => '50',
-    'style'       => 'width:50%',
-);
-
-echo form_input($data);
-
-echo form_submit('mysubmit', 'Submit Post!');
-?>
-
-
-<?php echo form_close() ?>
+       </div>
 </div> <!-- container -->
 
 
@@ -157,6 +129,10 @@ echo form_submit('mysubmit', 'Submit Post!');
 
                 $("#greske").html("");
                 $("#greske").fadeOut(200);
+              $("#last_name").val("");
+              $("#first_name").val("");
+                $("#email").val("");
+
             }
         }
     });

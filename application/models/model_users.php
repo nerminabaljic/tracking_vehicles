@@ -101,4 +101,9 @@ class Model_users extends CI_Model{
             return true;
         }else return false;
     }
+
+    public function  view_invited_user()
+    {
+        return $query = $this->db->get('invite_user');
+    }
 }
