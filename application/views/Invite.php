@@ -18,6 +18,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
+
 </head>
 
 <body>
@@ -72,10 +73,10 @@
             </div>
         </div>
         <div class="btn-group">
-                <button class="btn btn-default" id="submit-button">Submit</button>
+                <button class="btn btn-default" id="invite_all_button">Invite All</button>
 
             </div>
-       </div>
+
 </div> <!-- container -->
 
 
@@ -137,7 +138,7 @@
         }
     });
 
-    $("#submit-button").click(function(){
+    $("#invite_all_button").click(function(){
         var last_name = [];
         $("#tijelo").find(".last_name_td").each(function(){
             last_name.push($(this).text());
@@ -153,15 +154,15 @@
             email.push($(this).text());
         });
 
-        console.log(last_name);
+
 
         $.post("http://localhost/tracking_vehicles/main/invite_all", {
 
             "last_name" : last_name,
             "first_name" :first_name,
             "email" : email
-        }, function(data){
-        console.log(data);
+        }, function(){
+        //prikazati poruku usjesnosti!
     });
     });
 </script>

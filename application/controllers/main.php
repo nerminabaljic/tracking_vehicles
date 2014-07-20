@@ -123,7 +123,7 @@ class Main extends CI_Controller {
 
         for ($i=0;$i<count($email);$i++) {
 
-            echo 'unutar for petlje sam ';
+
             $key = md5(uniqid());
 
             $this->load->library('email', array('mailtype' => 'html'));
@@ -141,7 +141,6 @@ class Main extends CI_Controller {
             $this->load->library('email', $config);
 
             $this->email->to($email[$i]);
-            echo 'email je : ' . $email[$i];
             $this->email->subject("Invite to SingUp");
 
             $message = "<p>Korisnicko ime : ". $email[$i]."</p></br>" ;

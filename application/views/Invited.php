@@ -25,6 +25,7 @@
     <div class="row">
         <fieldset>
             <legend>Invited List</legend>
+
             <div class="col-lg-12">
                 <table class="table table-hover table-bordered">
                     <tr>

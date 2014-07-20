@@ -89,21 +89,24 @@ class Model_users extends CI_Model{
                 'email' => $row->email,
                 'first_name' =>$row->FirstName,
                 'last_name' => $row->LastName,
-                'password'=>$row->password
-            );
+                'password'=>$row->password,
+                'username' =>$row->FirstName.$row->LastName
 
+            );
             $did_add_user = $this->db->insert('user', $data);
         }
 
         if ($did_add_user) {
+            $data2 = array('accepted' => 1);
             $this->db->where('key', $key);
-            $this->db->delete('invite_user');
+            $this->db->update('invite_user',$data2);
             return true;
         }else return false;
     }
 
     public function  view_invited_user()
     {
-        return $query = $this->db->get('invite_user');
+        return $query = $this->db->get_where('invite_user', array('accepted' => 1));
+
     }
 }
