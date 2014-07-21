@@ -24,38 +24,6 @@ class Main extends CI_Controller {
 
 	}
 
-/*    public function googleLogin(){
-        $this->load->model('model_users');
-        $openid = new LightOpenID("localhost");
-
-        if ($openid->mode) {
-            if ($openid->mode == 'cancel') {
-                echo "User has canceled authentication!";
-
-            } elseif($openid->validate()) {
-                $data = $openid->getAttributes();
-                $email = $data['contact/email'];
-
-
-
-                $result= mysql_query("SELECT * FROM user WHERE email = '$email'");
-                if(is_resource($result) and mysql_num_rows($result)>0){
-                    $row = mysql_fetch_array($result);
-
-                    $usr = array(
-                    'email' =>$email,
-                    'is_logged_in' => 1
-
-                );
-
-                    $this->session->set_userdata($usr);
-                    redirect('main/Navigation');
-                }}
-                else{
-                    $this->load->view("Sign_In");
-                }
-
-    }}*/
 
     public function login(){
         $this->load->view('Sign_In');
