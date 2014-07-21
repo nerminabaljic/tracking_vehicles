@@ -3,7 +3,7 @@
 <head>
     <title> GPS pracenje vozila </title>
     <link rel="stylesheet" type="text/css" href="../../css/navigation.css">
-    <link href="../../lib/bootstrap3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../bootstrap3.2/css/bootstrap.min.css" rel="stylesheet">
     <meta charset= "utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,6 +19,6 @@
 </div> <!-- container -->
 
 
-<script src="../../lib/bootstrap3.2/js/bootstrap.min.js"></script>
+<script src="../../bootstrap3.2/js/bootstrap.min.js"></script>
 </body>
 </html>
