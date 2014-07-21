@@ -21,7 +21,7 @@
 					
 		<div id="content">
 			<div id="sign_in_form">
-                <?php echo form_open('main/googleLogin'); ?>
+
                 <?php  echo form_open('main/login_validation');?>
                 <?php  echo validation_errors(); ?>
 				<h2>Sign in to GPS </h2>
@@ -47,7 +47,7 @@
                      'contact/email',
                 );
 
-                $openid->returnUrl = 'http://localhost/git_codeIgniter-master/' ?>
+                $openid->returnUrl = 'http://localhost/tracking_vehicles/' ?>
                 <a href="<?php echo $openid->authUrl() ?>"><img id="Gplus_picture" src="<?php echo base_url();?>/images/Gplus.png"></a> <br/>
                 <?php
 
