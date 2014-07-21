@@ -108,45 +108,48 @@ class Main extends CI_Controller {
             return false;
         }
     }
-
      public function logout(){
         $this->session->sess_destroy();
         redirect('main/login');
     }
 
-
-
-    public  function invite_validation()
+    public  function invite_all()
     {
 
-        $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email');
+        $last_name = $_POST['last_name'];
+        $first_name = $_POST['first_name'];
+        $email = $_POST['email'];
 
-        $this->form_validation->set_rules('first_name', 'First Name', 'required|trim');
+        for ($i=0;$i<count($email);$i++) {
 
-        $this->form_validation->set_rules('last_name', 'Last Name', 'required|trim');
-
-        $this->form_validation->set_message('is_unique', "That email address already exists");
-
-
-        if ($this->form_validation->run()) {
 
             $key = md5(uniqid());
 
             $this->load->library('email', array('mailtype' => 'html'));
             $this->load->model('model_users');
 
-            $this->email->from('me@mywebsite.com', "Elvir");
-            $this->email->to($this->input->post('email'));
+            $config = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => '',
+                'smtp_pass' => '',
+                'mailtype'  => 'html',
+                'charset'   => 'iso-8859-1'
+            );
+            $this->load->library('email', $config);
+
+            $this->email->to($email[$i]);
             $this->email->subject("Invite to SingUp");
 
-            $message = "<p><a href='" . base_url() . "main/register_user/$key'>Click here</a> to activate your account";
-
+            $message = "<p>Korisnicko ime : ". $email[$i]."</p></br>" ;
+            $message .= "<p>Lozinka je : test1 </p></br>" ;
+            $message .="<p>Link za aktivaciju vaseg racuna je : <a href='" . base_url() . "main/invite_user/$key'>Ovdje</a>";
             $this->email->message($message);
 
             //send email   to the user
-            if ($this->model_users->add_temp_user($key)) {
+            if ($this->model_users->add_temp_user($key,$email[$i],$first_name[$i],$last_name[$i])) {
                 if ($this->email->send()) {
                     echo "The email has been sent!";
                 } else {
@@ -155,14 +158,36 @@ class Main extends CI_Controller {
             } else
                 echo "problem adding to database";
         }
-        else $this->load->view('Invite');
+
+
+    }
+    public  function  invite_user($key)
+    {
+        $this->load->model('model_users');
+        if ($this->model_users->is_key_valid($key)) {
+            if($this->model_users->add_user($key))
+            {
+                echo "Uspjesno aktiviran racun .";
+            }
+            else echo "greska pri aktivaciji korisnickog racuna , pokusajte ponovo.";
+        }
+        else echo "pogresan aktivacisjki kljuc.";
+
+
+    }
+    public function  invited_user()
+    {
+        $this->load->model('model_users');
+
+        $data['query'] = $this->model_users->view_invited_user();
+        $this->load->view('Invited', $data);
     }
 
     public function Invite()
     {
+
         $this->load->view('Invite');
     }
-
 }
 
 /* End of file main.php */
