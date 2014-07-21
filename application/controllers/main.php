@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require 'openid.php';
+
 class Main extends CI_Controller {
 
 	/**
@@ -21,12 +21,10 @@ class Main extends CI_Controller {
 	public function index()
 	{
 		$this->login();
-        /*$openid = new LightOpenID('localhost');
-        $openid->identity= 'https://www.google.com/accounts/o8/id';
-        header('Location: ' . $openid->authUrl());*/
+
 	}
 
-    public function googleLogin(){
+/*    public function googleLogin(){
         $this->load->model('model_users');
         $openid = new LightOpenID("localhost");
 
@@ -57,7 +55,7 @@ class Main extends CI_Controller {
                     $this->load->view("Sign_In");
                 }
 
-    }}
+    }}*/
 
     public function login(){
         $this->load->view('Sign_In');
