@@ -159,6 +159,7 @@ class Main extends CI_Controller {
 
             $this->load->view("header.php");
             $this->load->view("navigation.php");
+            $this->load->view("aktivni_korisnici");
             $this->load->view("footer.php");
 
     }
