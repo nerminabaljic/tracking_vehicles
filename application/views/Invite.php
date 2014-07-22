@@ -27,7 +27,7 @@
 
     <div class="row">
         <div class="col-lg-4">
-        <h1>INVITE</h1>
+        <h3>INVITE</h3>
             <label id="greske" hidden></label>
         <form method="post" id="forma">
         <div class="input-group">
@@ -53,7 +53,7 @@
         </div>
         </div>
         <div class="col-lg-8">
-            <h1>TODO <LIST></LIST></h1>
+            <h3>TODO <LIST></LIST></h3>
 
             <div class="span9 offset1">
                 <table class="table table-striped table-bordered tablesorter" id="tusers">

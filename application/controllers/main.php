@@ -152,13 +152,13 @@ class Main extends CI_Controller {
     public function Invite()
     {
 
-        $this->load->view('Invite');
+        $this->load->view('invite');
     }
 
     public function logirajSe(){
 
             $this->load->view("header.php");
-            $this->load->view("proba.php");
+            $this->load->view("navigation.php");
             $this->load->view("footer.php");
 
     }

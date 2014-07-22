@@ -12,22 +12,19 @@
 <body>
 	
 	<div class = "container">
-		
-		<div class ="col-md-3">
+
+		<div class ="col-md-2">
 		<ul class= "nav nav-pills nav-stacked">
 				<li class="active"><a href = "#">Invite employee</a></li>
 				<li><a href = "#">Employee</a></li>
 				<li><a href = "#">Create vehicle</a></li>
 				<li><a href = "#">Vehicle</a></li>
+                <li><a href = '<?php echo base_url()."main/logout" ?>'>Logout</a></li>
 		</ul>
 
-            <?php
-            echo "<pre>";
-            print_r($this->session->all_userdata());
-            echo "</pre>";
-            ?>
 
-            <a href = '<?php echo base_url()."main/logout" ?>'>Logout</a>
+
+
 		</div>
 		
 	</div> <!-- container -->
