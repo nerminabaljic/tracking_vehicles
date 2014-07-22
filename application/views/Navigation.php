@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title> GPS pracenje vozila </title>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/container.css">
 	<link href="<?php echo base_url();?>/bootstrap3.2/css/bootstrap.min.css" rel="stylesheet">
 	<meta charset= "utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,9 +25,9 @@
 
 
 
-		</div>
-		
-	</div> <!-- container -->
+	</div>
+ 
+
 
 
 <script src="<?php echo base_url();?>/bootstrap3.2/js/bootstrap.min.js"></script>
