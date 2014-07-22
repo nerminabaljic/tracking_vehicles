@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/footer.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/invite.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/aktivni_korisnici.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/employee.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.1/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/plug-ins/be7019ee387/integration/jqueryui/dataTables.jqueryui.css">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"><!-- Optional theme -->
 
     <script src="<?php echo base_url();?>/lib/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 

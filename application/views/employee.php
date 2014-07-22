@@ -2,7 +2,7 @@
 <div class ="col-md-9">
 <table id="filter" style="width: 40%; margin: 1em;" cellpadding="3" cellspacing="0" border="0">
 
-    <tbody id="filter">
+    <tbody>
     <tr>
         <td align="center" id="gender"></td>
         <td align="center" id="position"></td>
@@ -222,6 +222,6 @@
 
     <script type="text/javascript" charset="utf8" src="<?php echo base_url();?>/bootstrap3.2/js/bootstrap.min.js"></script>
 
-    <script src="<?php echo base_url();?>/js/aktivni_korisnici.js"></script>
+    <script src="<?php echo base_url();?>/js/employee.js"></script>
 </div>
 </div>
