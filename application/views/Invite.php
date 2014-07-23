@@ -1,6 +1,6 @@
     <div class ="col-md-8">
         <h3> Invite employ </h3> <br>
-        <form class="form-inline" role="form" id="myForm" method="post" target="_parent">
+        <form class="form-inline" id="myForm" method="post" target="_parent">
             <input type="text" name="Name" value="" class="form-control" id="exampleInputFname" placeholder="Enter first name">
             <input type="text" name="Name" value="" class="form-control" id="exampleInputLname" placeholder="Enter last name">
             <input type="text" name="Name" value="" class="form-control" id="exampleInputEmail" placeholder="Enter email">
@@ -8,7 +8,7 @@
             <br><br>
 
             <table class="table table-striped table-bordered tablesorter" id="tusers">
-                    <h4> Send all invite </h4>
+                    <h3> Send all invite </h3>
                 <thead>
                     <tr>
                         <th>First name</th>
