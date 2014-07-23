@@ -33,10 +33,8 @@
 						<input id="CANCEL" type="reset" value="CANCEL"></p>
 					</div>
 				</div>
-				<label>
-					<input type="checkbox" name="remember_me" id="remember_me">Remember me on this computer
-				</label>
-				<p id="forgot_password"><a href="form_forgot_password.html">Forgot Password?</a></p>
+
+				<p id="forgot_password"><a href="<?php echo site_url('main/forgot_password')?>">Forgot Password?</a></p>
 				<p id= "Gplus">Or sign up with: </p>
                 <?php // index.php
                 require_once 'openid.php';

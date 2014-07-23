@@ -17,7 +17,7 @@ class Model_users extends CI_Model{
 
 
     }
-    public function google_auth($email){
+   /* public function google_auth($email){
         $this->db->where('email', $email);
 
         $query=$this->db->get('user');
@@ -26,7 +26,7 @@ class Model_users extends CI_Model{
             return $query;
         }
         else return true;
-    }
+    }*/
 
    /* public function get_user($email){
         $this->db->where('email', $email);
@@ -38,6 +38,12 @@ class Model_users extends CI_Model{
 
     }*/
 
+    public function change_pass($password)
+    {
+
+
+
+    }
     public function add_temp_user($key,$email,$first_name,$last_name)
     {
 
@@ -107,6 +113,19 @@ class Model_users extends CI_Model{
     public function  view_invited_user()
     {
         return $query = $this->db->get_where('invite_user', array('accepted' => 1));
+
+    }
+
+    public function email_exist(){
+        $this->db->where('email', $this->input->post('email'));
+        $query = $this->db->get('user');
+
+        if(!$query->num_rows()==0){
+            return true;
+        }
+        else{
+            return false;
+        }
 
     }
 }

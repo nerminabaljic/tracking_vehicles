@@ -63,6 +63,45 @@ class Main extends CI_Controller {
 
     }
 
+    public function forgot_password(){
+        $this->load->view('form_forgot_password');
+
+    }
+
+   public function random_password($length){
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
+        $password = substr( str_shuffle( $chars ), 0, $length );
+        return $password;
+    }
+
+    public function send(){
+        $this->load->library('email');
+        $this->load->model('model_users');
+
+        $mail=$this->input->post('email');
+        if($this->model_users->email_exist()){
+        $this->email->from('NSoft.tracking.vehicles@gmail.com', 'Tracking Vehicles Administration');
+        $this->email->to($mail);
+        //$this->email->cc('nermina_win@hotmail.com');
+        $this->email->subject('Password recovery');
+
+        $password=$this->random_password(8);
+         $this->email->message('Your new password is : '.$password);
+
+        if ($this->email->send()){
+            $this->model_users->change_pass($password);
+            $this->load->view('Sign_In');
+
+        }
+        else{
+            echo $this->email->print_debugger();
+        }}
+        else echo "This user doesnt exist". $this->input->post('email');
+
+    }
+
+
+
     public function validate_credentials(){
         $this->load->model('model_users');
 
@@ -92,20 +131,13 @@ class Main extends CI_Controller {
 
             $key = md5(uniqid());
 
-            $this->load->library('email', array('mailtype' => 'html'));
+            $this->load->library('email');
             $this->load->model('model_users');
 
-            $config = Array(
-                'protocol' => 'smtp',
-                'smtp_host' => 'ssl://smtp.googlemail.com',
-                'smtp_port' => 465,
-                'smtp_user' => '',
-                'smtp_pass' => '',
-                'mailtype'  => 'html',
-                'charset'   => 'iso-8859-1'
-            );
-            $this->load->library('email', $config);
 
+
+
+            $this->email->from('nermina.baljic@gmail.com','Nermina');
             $this->email->to($email[$i]);
             $this->email->subject("Invite to SingUp");
 
@@ -116,13 +148,14 @@ class Main extends CI_Controller {
 
             //send email   to the user
             if ($this->model_users->add_temp_user($key,$email[$i],$first_name[$i],$last_name[$i])) {
+               $this->email->send();
                 if ($this->email->send()) {
                     echo "The email has been sent!";
                 } else {
                     echo "could not send the email";
                 }
-            } else
-                echo "problem adding to database";
+           } else
+               echo "problem adding to database";
         }
 
 
@@ -141,6 +174,7 @@ class Main extends CI_Controller {
 
 
     }
+
     public function  invited_user()
     {
         $this->load->model('model_users');
