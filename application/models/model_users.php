@@ -40,7 +40,11 @@ class Model_users extends CI_Model{
 
     public function change_pass($password)
     {
+        $this->db->where('email', $this->input->post('email'));
+        $this->db->set('password', md5($password), TRUE);
+        $this->db->update('user');
 
+        return;
 
 
     }
