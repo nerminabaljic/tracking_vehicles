@@ -1,6 +1,6 @@
 
 <div class ="col-md-9">
-<table id="filteri_vozila" style="width: 50%; margin: 1em;" cellpadding="3" cellspacing="0" border="0">
+<table id="filteri_vozila" style="width: 60%; margin: 1em;" cellpadding="3" cellspacing="0" border="0">
 
     <tbody>
     <tr>
