@@ -33,6 +33,6 @@
 </div> <!-- container -->
 
 
-<script src="../lib/jquery-1.11.1.min.js"></script>
-<script src="../js/invite.js"></script>
+<script src="<?php echo base_url();?>/lib/jquery-1.11.1.min.js"></script>
+<script src="<?php echo base_url();?>/js/invite.js"></script>
 

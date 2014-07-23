@@ -17,7 +17,7 @@ class Model_users extends CI_Model{
 
 
     }
-   /* public function google_auth($email){
+    public function google_auth($email){
         $this->db->where('email', $email);
 
         $query=$this->db->get('user');
@@ -26,7 +26,7 @@ class Model_users extends CI_Model{
             return $query;
         }
         else return true;
-    }*/
+    }
 
    /* public function get_user($email){
         $this->db->where('email', $email);
