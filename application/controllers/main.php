@@ -186,9 +186,32 @@ class Main extends CI_Controller {
     public function Invite()
     {
 
-        $this->load->view('Invite');
+        $this->load->view('invite');
+    }
+
+    public function logirajSe(){
+
+            $this->load->view("header.php");
+            $this->load->view("navigation.php");
+            $this->load->view("Invite.php");
+            $this->load->view("footer.php");
+    }
+    public function korisnici(){
+
+        $this->load->view("header.php");
+        $this->load->view("navigation.php");
+        $this->load->view("employee");
+        $this->load->view("footer.php");
+    }
+    public function vehicles(){
+
+        $this->load->view("header.php");
+        $this->load->view("navigation.php");
+        $this->load->view("vehicles.php");
+        $this->load->view("footer.php");
     }
 }
+
 
 /* End of file main.php */
 /* Location: ./application/controllers/main.php */

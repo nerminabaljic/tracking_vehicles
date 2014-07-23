@@ -1,7 +1,10 @@
 <div class="row">
     <div class="span12">
         <div class="well">
-            <h3>Copyright &copy; Smogovci </h3>
+            <h5>Copyright &copy; Smogovci </h5>
         </div>
     </div>
 </div>
+
+</body>
+</html>
