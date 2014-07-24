@@ -55,7 +55,7 @@ class Main extends CI_Controller {
 
             );
             $this->session->set_userdata($data);
-            redirect('main/Navigation');
+            redirect('main/navigation');
         }
         else{
             $this->load->view("Sign_In");
