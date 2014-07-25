@@ -24,11 +24,9 @@ class Main extends CI_Controller {
 
 	}
 
-
     public function login(){
         $this->load->view('Sign_In');
     }
-
     public function Navigation(){
         if($this->session->userdata('is_logged_in')){
         $this->load->view('Navigation');
@@ -37,11 +35,9 @@ class Main extends CI_Controller {
             redirect('main/restricted');
         }
     }
-
     public function Restricted(){
         $this->load->view("restricted");
     }
-
     public function login_validation(){
         $this->load->library('form_validation');
 
@@ -62,18 +58,15 @@ class Main extends CI_Controller {
         }
 
     }
-
     public function forgot_password(){
         $this->load->view('form_forgot_password');
 
     }
-
    public function random_password($length){
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
         $password = substr( str_shuffle( $chars ), 0, $length );
         return $password;
     }
-
     public function send(){
         $this->load->library('email');
         $this->load->model('model_users');
@@ -99,9 +92,6 @@ class Main extends CI_Controller {
         else echo "This user doesnt exist". $this->input->post('email');
 
     }
-
-
-
     public function validate_credentials(){
         $this->load->model('model_users');
 
@@ -113,11 +103,10 @@ class Main extends CI_Controller {
             return false;
         }
     }
-     public function logout(){
+    public function logout(){
         $this->session->sess_destroy();
         redirect('main/login');
     }
-
     public  function invite_all()
     {
 
@@ -131,14 +120,24 @@ class Main extends CI_Controller {
 
             $key = md5(uniqid());
 
-            $this->load->library('email');
+            $this->load->library('email', array('mailtype' => 'html'));
             $this->load->model('model_users');
 
+            $config = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => '',
+                'smtp_pass' => '',
+                'mailtype'  => 'html',
+                'charset'   => 'iso-8859-1'
+            );
+            $this->load->library('email', $config);
 
+            $this->email->from('NSoft.tracking.vehicles@gmail.com', 'Tracking Vehicles Administration');
 
-
-            $this->email->from('nermina.baljic@gmail.com','Nermina');
             $this->email->to($email[$i]);
+
             $this->email->subject("Invite to SingUp");
 
             $message = "<p>Korisnicko ime : ". $email[$i]."</p></br>" ;
@@ -148,19 +147,18 @@ class Main extends CI_Controller {
 
             //send email   to the user
             if ($this->model_users->add_temp_user($key,$email[$i],$first_name[$i],$last_name[$i])) {
-               $this->email->send();
                 if ($this->email->send()) {
                     echo "The email has been sent!";
                 } else {
                     echo "could not send the email";
                 }
-           } else
-               echo "problem adding to database";
+            } else
+                echo "problem adding to database";
         }
 
 
     }
-    public  function  invite_user($key)
+    public  function invite_user($key)
     {
         $this->load->model('model_users');
         if ($this->model_users->is_key_valid($key)) {
@@ -174,20 +172,25 @@ class Main extends CI_Controller {
 
 
     }
-
-    public function  invited_user()
+    public function  invited_employee()
     {
         $this->load->model('model_users');
 
         $data['query'] = $this->model_users->view_invited_user();
-        $this->load->view('Invited', $data);
-    }
 
+        $this->load->view("header.php");
+        $this->load->view("navigation.php");
+
+        $this->load->view("employee.php",$data);
+
+        $this->load->view("footer.php");
+
+    }
     public function Invite()
     {
-        $this->load->view('Invite.php');
-    }
+        $this->load("Invite.php");
 
+    }
     public function logirajSe(){
 
             $this->load->view("header.php");
@@ -196,19 +199,34 @@ class Main extends CI_Controller {
             $this->load->view("footer.php");
     }
     public function korisnici(){
-
-        $this->load->view("header.php");
-        $this->load->view("navigation.php");
-        $this->load->view("employee");
-        $this->load->view("footer.php");
+       $this->invited_employee();
     }
     public function vehicles(){
+        $this->laod("vehicles.php");
+    }
+    //ucitavanje hedere i futere , prima : main page...
+
+    public function load($page)
+    {
 
         $this->load->view("header.php");
         $this->load->view("navigation.php");
-        $this->load->view("vehicles.php");
+
+        $this->load->view($page);
+
         $this->load->view("footer.php");
     }
+    public function load_page_data($page,$data)
+    {
+
+        $this->load->view("header.php");
+        $this->load->view("navigation.php");
+
+        $this->load->view($page,$data);
+
+        $this->load->view("footer.php");
+    }
+
 }
 
 
