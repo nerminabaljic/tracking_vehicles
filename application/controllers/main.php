@@ -148,7 +148,7 @@ class Main extends CI_Controller {
             //send email   to the user
             if ($this->model_users->add_temp_user($key,$email[$i],$first_name[$i],$last_name[$i])) {
                 if ($this->email->send()) {
-                    echo "The email has been sent!";
+                    echo "email has been sent!";
                 } else {
                     echo "could not send the email";
                 }
