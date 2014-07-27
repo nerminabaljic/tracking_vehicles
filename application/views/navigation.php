@@ -15,7 +15,6 @@
 
     <div class ="col-md-2">
         <ul class= "nav nav-pills nav-stacked">
-            <li class="active"><a href = "<?php echo site_url('main/logirajSe');?>"">Invite employee</a></li>
             <li><a href="<?php echo site_url('main/korisnici');?>" ">Employee</a></li>
             <li><a href = "#">Create vehicle</a></li>
             <li><a href = "<?php echo site_url('main/vehicles');?>">Vehicle</a></li>

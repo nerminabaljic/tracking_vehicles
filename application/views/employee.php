@@ -8,6 +8,11 @@
         <td align="center" id="position"></td>
         <td align="center" id="status"></td>
     </tr>
+    <div id="invite" class ="col-md-2">
+        <ul class= "nav nav-pills nav-stacked">
+            <li class="active"><a href = "<?php echo site_url('main/logirajSe');?>"">Invite employee</a></li>
+        </ul>
+    </div>
     </tbody>
 </table>
 

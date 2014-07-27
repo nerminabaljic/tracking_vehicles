@@ -5,4 +5,10 @@ table {
 td{
     overflow:hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#invite{
+    float: right;
+    clear: both;
+    padding: 0px;
 }
