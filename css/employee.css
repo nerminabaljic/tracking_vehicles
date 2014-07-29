@@ -12,3 +12,7 @@ td{
     clear: both;
     padding: 0px;
 }
+
+table.dataTable.no-footer{
+    border-bottom:0px !important;
+}

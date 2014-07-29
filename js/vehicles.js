@@ -21,6 +21,7 @@ $(document).ready(function(){
 
     });
     $('#vehicles').dataTable().columnFilter({
+        sPlaceHolder: "head:before",
         aoColumns:[
             null, null,
             { sSelector:"#registration", type:"select"},
