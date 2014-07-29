@@ -1,4 +1,6 @@
+
 $(document).ready(function(){
+
     $('#example').DataTable({
         bJQueryUI: true,
         sPaginationType: "full_numbers",
@@ -41,4 +43,5 @@ $(document).ready(function(){
         "track": true,
         "fade": 250
     } );
+
 });
