@@ -1,10 +1,13 @@
 <div class ="col-md-8">
     <h3> Invite employ </h3> <br>
+
+    <label id="greske" hidden></label>
+
     <form class="form-inline" id="myForm" method="post" target="_parent">
-        <input type="text" name="Name" value="" class="form-control" id="exampleInputFname" placeholder="Enter first name">
-        <input type="text" name="Name" value="" class="form-control" id="exampleInputLname" placeholder="Enter last name">
-        <input type="text" name="Name" value="" class="form-control" id="exampleInputEmail" placeholder="Enter email">
-        <input id="add" type="button" class="btn btn-default" value="  ADD " name="submit">
+        <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Enter first name"  value="<?php $this->input->post('first_name'); ?>">
+        <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Enter last name"  value="<?php $this->input->post('last_name'); ?>">
+        <input type="text" name="email" class="form-control" id="email" placeholder="Enter email"  value="<?php $this->input->post('email'); ?>">
+        <input  id="add_to_invite_submit"  name="add_to_invite_submit"  type="button" class="btn btn-default" value="  ADD ">
         <br><br>
 
         <table class="table table-striped table-bordered tablesorter" id="tusers">
@@ -17,23 +20,122 @@
                 <th>Delete</th>
             </tr>
             </thead>
-            <tbody id="tijelo">
-
-
-
+            <tbody id="employee">
             </tbody>
         </table>
 
-        <input id="submit" type="button" class="submit" value="  SUBMIT  " name="submit">
+        <button class="btn btn-default" id="invite_all_button">Submit</button>
+
         <br><br><br>
     </form>
+
+    <label id="send_message" hidden></label>
+
+    <br><br>
+
 
 
 </div>
 </div> <!-- container -->
 
-<script src="../lib/submit_invite.js"></script>
-<script src="../lib/jquery-1.11.1.min.js"></script>
-<script src="../lib/submit_invite.js"></script>
-<script src="../js/invite.js"></script>
 
+<script src="<?php echo base_url();?>/lib/jquery-1.11.1.min.js"></script>
+<!--
+<script src="<?php echo base_url();?>/js/invite.js"></script>
+-->
+<script>
+
+    $("#myForm").submit(function(){
+        return false;
+    });
+
+    $("#add_to_invite_submit").click(function(){
+
+        var last_name = $("#last_name").val();
+        var first_name = $("#first_name").val();
+        var email = $("#email").val();
+
+
+        if(last_name.length == 0){
+            $("#greske").html("Last name can't be empty");
+            $("#greske").addClass("alert").addClass("alert-danger");
+            $("#greske").fadeIn(200);
+        }
+        else if(email.length == 0){
+            $("#greske").html("Email can't be empty");
+            $("#greske").addClass("alert").addClass("alert-danger");
+            $("#greske").fadeIn(200);
+        }
+        else if(first_name.length == 0){
+            $("#greske").html("First name can't be empty");
+            $("#greske").addClass("alert").addClass("alert-danger");
+            $("#greske").fadeIn(200);
+        }else{
+            var valid=true;
+            var email_array= [];
+            $("#employee").find(".email_td").each(function(){
+                if($(this).text() == email )
+                    valid=false;
+            });
+
+            if(valid==false)
+            {
+                $("#greske").html("Email already added");
+                $("#greske").addClass("alert").addClass("alert-danger");
+                $("#greske").fadeIn(200);
+            }
+            else {
+                $("#employee").append(" <tr>\
+                <td class='last_name_td'>" + last_name + "</td>\
+                <td class='first_name_td'>" + first_name + "</td>\
+                <td class='email_td'>" + email + "</td>\
+            </tr>");
+
+                $("#greske").html("");
+                $("#greske").fadeOut(200);
+                $("#last_name").val("");
+                $("#first_name").val("");
+                $("#email").val("");
+
+                $("#send_message").html("");
+                $("#send_message").fadeOut(200);
+
+            }
+        }
+    });
+
+    $("#invite_all_button").click(function(){
+        var last_name = [];
+        $("#employee").find(".last_name_td").each(function(){
+            last_name.push($(this).text());
+        });
+
+        var first_name = [];
+        $("#employee").find(".first_name_td").each(function(){
+            first_name.push($(this).text());
+        });
+
+        var email = [];
+        $("#employee").find(".email_td").each(function(){
+            email.push($(this).text());
+        });
+
+
+
+        $.post("http://localhost/tracking_vehicles/main/invite_all", {
+
+            "last_name" : last_name,
+            "first_name" :first_name,
+            "email" : email
+        }, function(){
+            //prikazati poruku usjesnosti!
+
+
+
+            $("#send_message").html("Successfully send invitations!");
+            $("#send_message").addClass("alert").addClass("alert-success");
+            $("#send_message").fadeIn(200);
+
+        });
+    });
+</script>
