@@ -114,7 +114,7 @@
         $("#tijelo").find(".email_td").each(function(){
             email.push($(this).text());
         });
-        $.post("http://localhost/vehicles_last/main/invite_all", {
+        $.post(<?php echo base_url();?>"/main/invite_all", {
 
             "last_name" : last_name,
             "first_name" :first_name,

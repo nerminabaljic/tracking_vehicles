@@ -41,31 +41,56 @@ class Main extends CI_Controller {
     public function Restricted(){
         $this->load->view("restricted");
     }
+    public function test_login()
+    {
+        $this->load->model('model_users');
 
-    public function login_validation(){
-        $this->load->library('form_validation');
-
-        $this->form_validation->set_rules('username','Username', 'required|trim|xss_clean|callback_validate_credentials');
-        $this->form_validation->set_rules('password','Password', 'required|md5');
-        if($this->form_validation->run() ){
-            if($this->validate_credentials($this->input->post('email'),$this->input->post('password')))
+        if($this->model_users->login($this->input->post('email'),$this->input->post('password'))) {
             $data = array(
                 'username' => $this->input->post('username'),
                 'is_logged_in' => true
-
             );
             $this->session->set_userdata($data);
             redirect('main/Navigation');
         }
+        else echo 'error';
+    }
+
+    public function login_validation(){
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('email','Email', 'required|trim|xss_clean|callback_validate_credentials');
+        $this->form_validation->set_rules('password','Password', 'required|md5');
+
+        if($this->form_validation->run() ){
+
+            if($this->validate_credentials($this->input->post('email'),$this->input->post('password'))) {
+                $data = array(
+                    'username' => $this->input->post('username'),
+                    'is_logged_in' => true
+                );
+                $this->session->set_userdata($data);
+                redirect('main/Navigation');
+            }
+        }
         else{
             $this->load->view("Sign_In");
         }
+    }
+    public function validate_credentials($email,$pass){
+        $this->load->model('model_users');
 
+        if($this->model_users->can_log_in($email,$pass)){
+            return true;
+        }
+        else{
+            $this->form_validation->set_message('validate_credentials','Incorrect username/password.');
+            return false;
+        }
     }
 
     public function forgot_password(){
         $this->load->view('form_forgot_password');
-
     }
 
    public function random_password($length){
@@ -98,20 +123,6 @@ class Main extends CI_Controller {
         }}
         else echo "This user doesnt exist". $this->input->post('email');
 
-    }
-
-
-
-    public function validate_credentials($email,$pass){
-        $this->load->model('model_users');
-
-        if($this->model_users->can_log_in($email,$pass)){
-            return true;
-        }
-        else{
-            $this->form_validation->set_message('validate_credentials','Incorrect username/password.');
-            return false;
-        }
     }
      public function logout(){
         $this->session->sess_destroy();
@@ -206,6 +217,11 @@ class Main extends CI_Controller {
         $this->load->view("footer.php");
 
     }
+
+    public  function  test(){
+        $this->load->view("test.php");
+    }
+
 
 }
 
