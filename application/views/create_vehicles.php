@@ -1,7 +1,7 @@
 <h2 style="color:#585858 ">Add Vehicle </h2>
 
 <div class="table-responsive">
-    <form class="form-horizontal">
+    <div class="form-horizontal">
 
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Name of vehicle" value="<?php $this->input->post('name_of_vehicle'); ?>">
@@ -45,12 +45,13 @@
             &nbsp;
             <span class='label label-info' id="upload-file-info"></span>
         </div>
-        <button type="button" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
         <br>
 
 
         <input class="btn btn-primary" type="submit" value="ADD VEHICLE" name="ADD VEHICLE">
         <input class="btn btn-primary" type="reset" value="CANCEL" name="CANCELS">
-    </form>
+    </div>
 </div>
 </div>
+<br><br>

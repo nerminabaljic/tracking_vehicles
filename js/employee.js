@@ -5,19 +5,8 @@ $(document).ready(function(){
         //scrollX: true
         bprocessing: true,
         bserverSide: true,
-        bAutoWidth: false,
-        //ajax: "main/employee.php",
-         columns: [
-        	{ "data": "first_name" },
-            { "data": "last_name" },
-        	{ "data": "email" },
-        	{ "data": "date_of_birth" },
-        	{ "data": "gender" },
-            { "data": "position" },
-            { "data": "mobile_number" },
-            { "data": "address" },
-            { "data": "status" }
-         ]
+        bAutoWidth: false
+
     });
 
     $('#example').dataTable().columnFilter({

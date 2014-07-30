@@ -34,19 +34,7 @@
         </tr>
         </thead>
 
-        <tfoot>
-        <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Email</th>
-            <th>Date of birth</th>
-            <th>Gender</th>
-            <th>Position</th>
-            <th>Mobile number</th>
-            <th>Address</th>
-            <th>Status</th>
-        </tr>
-        </tfoot>
+
         <tbody>
 
         <?php foreach ($query->result_array() as $row){?>
