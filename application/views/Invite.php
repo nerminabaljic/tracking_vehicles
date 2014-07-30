@@ -89,6 +89,7 @@
                 <td class='last_name_td'>" + last_name + "</td>\
                 <td class='first_name_td'>" + first_name + "</td>\
                 <td class='email_td'>" + email + "</td>\
+                <td class='delete_td' onclick='deleteRow(this)'>" + "X" + "</td>\
             </tr>");
 
                 $("#greske").html("");
@@ -138,4 +139,9 @@
 
         });
     });
+
+
+    function deleteRow(td) {
+        td.parentNode.parentNode.removeChild(td.parentNode);
+    }
 </script>

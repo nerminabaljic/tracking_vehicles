@@ -53,12 +53,16 @@ class Model_users extends CI_Model{
 
 
     }
-    public function add_temp_user($key,$email,$first_name,$last_name)
+    public function add_temp_user($key,$email,$first_name,$last_name,$password)
     {
 
         $this->db->where('email', $email);
         $query1 = $this->db->get('invite_user');
-        if($query1->num_rows()==1)
+
+        $this->db->where('email', $email);
+        $query2 = $this->db->get('user');
+
+        if($query1->num_rows()==1 || $query2->num_rows()==1)
         {
             return false;
         }
@@ -69,11 +73,9 @@ class Model_users extends CI_Model{
                 'FirstName' => $first_name,
                 'LastName' => $last_name,
                 'key' => $key,
-                'password' => md5("test")
+                'password' => $password
             );
-
             $query = $this->db->insert('invite_user', $data);
-
             if ($query)
                 return true;
             else

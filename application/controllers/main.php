@@ -120,45 +120,39 @@ class Main extends CI_Controller {
 
     public  function invite_all()
     {
-
-
         $last_name = $_POST['last_name'];
         $first_name = $_POST['first_name'];
         $email = $_POST['email'];
-
         for ($i=0;$i<count($email);$i++) {
-
 
             $key = md5(uniqid());
 
             $this->load->library('email');
+
             $this->load->model('model_users');
 
-
-
-
-            $this->email->from('nermina.baljic@gmail.com','Nermina');
+            $this->email->from('NSoft.tracking.vehicles@gmail.com', 'Tracking Vehicles Administration');
             $this->email->to($email[$i]);
-            $this->email->subject("Invite to SingUp");
+            $this->email->subject("Invite to Sing_Up");
 
             $message = "<p>Korisnicko ime : ". $email[$i]."</p></br>" ;
-            $message .= "<p>Lozinka je : test1 </p></br>" ;
-            $message .="<p>Link za aktivaciju vaseg racuna je : <a href='" . base_url() . "main/invite_user/$key'>Ovdje</a>";
+            $password=$this->random_password(8);
+
+            $message .= "<p>Lozinka je :".$password." </p></br>" ;
+
+            $message .="<p>Za aktivaciju vaseg racuna kliknite : <a href='".base_url()."main/invite_user/$key'>Ovdje</a>";
             $this->email->message($message);
 
             //send email   to the user
-            if ($this->model_users->add_temp_user($key,$email[$i],$first_name[$i],$last_name[$i])) {
-               $this->email->send();
+            if ($this->model_users->add_temp_user($key,$email[$i],$first_name[$i],$last_name[$i],md5($password))) {
                 if ($this->email->send()) {
-                    echo "email has been sent!";
+                    echo "The email has been sent!";
                 } else {
                     echo "could not send the email";
                 }
-           } else
-               echo "problem adding to database";
+            } else
+                echo "problem adding to database";
         }
-
-
     }
     public  function  invite_user($key)
     {
@@ -166,22 +160,14 @@ class Main extends CI_Controller {
         if ($this->model_users->is_key_valid($key)) {
             if($this->model_users->add_user($key))
             {
-                echo "Uspjesno aktiviran racun .";
+                $this->load->view('Sign_In');
             }
             else echo "greska pri aktivaciji korisnickog racuna , pokusajte ponovo.";
         }
         else echo "pogresan aktivacisjki kljuc.";
-
-
     }
 
-    public function  invited_user()
-    {
-        $this->load->model('model_users');
 
-        $data['query'] = $this->model_users->view_invited_user();
-        $this->load->view('Invited', $data);
-    }
 
     public function Invite()
     {
@@ -189,34 +175,41 @@ class Main extends CI_Controller {
     }
 
     public function logirajSe(){
-
-            $this->load->view("header.php");
-            $this->load->view("navigation.php");
-            $this->load->view("Invite.php");
-            $this->load->view("footer.php");
+        $this->loadPage("Invite.php");
     }
     public function korisnici(){
 
-        $this->load->view("header.php");
-        $this->load->view("navigation.php");
-        $this->load->view("employee");
-        $this->load->view("footer.php");
+        $this->load->model('model_users');
+
+        $data['query'] = $this->model_users->view_invited_user();
+
+        $this->loadPageWithData("employee.php", $data);
     }
 
     public function vehicles(){
-
-        $this->load->view("header.php");
-        $this->load->view("navigation.php");
-        $this->load->view("vehicles.php");
-        $this->load->view("footer.php");
+            $this->loadPage("vehicles.php");
     }
     public function create_vehicles(){
+        $this->loadPage("create_vehicles.php");
+    }
 
+    public  function  loadPage($url)
+    {
         $this->load->view("header.php");
         $this->load->view("navigation.php");
-        $this->load->view("create_vehicles.php");
+        $this->load->view($url);
         $this->load->view("footer.php");
     }
+
+    public function  loadPageWithData($url, $data)
+    {
+        $this->load->view("header.php");
+        $this->load->view("navigation.php");
+        $this->load->view($url,$data);
+        $this->load->view("footer.php");
+
+    }
+
 }
 
 
