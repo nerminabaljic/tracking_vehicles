@@ -202,11 +202,19 @@ class Main extends CI_Controller {
         $this->load->view("employee");
         $this->load->view("footer.php");
     }
+
     public function vehicles(){
 
         $this->load->view("header.php");
         $this->load->view("navigation.php");
         $this->load->view("vehicles.php");
+        $this->load->view("footer.php");
+    }
+    public function create_vehicles(){
+
+        $this->load->view("header.php");
+        $this->load->view("navigation.php");
+        $this->load->view("create_vehicles.php");
         $this->load->view("footer.php");
     }
 }
