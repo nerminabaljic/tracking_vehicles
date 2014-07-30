@@ -129,9 +129,6 @@
             "first_name" :first_name,
             "email" : email
         }, function(){
-            //prikazati poruku usjesnosti!
-
-
 
             $("#send_message").html("Successfully send invitations!");
             $("#send_message").addClass("alert").addClass("alert-success");
