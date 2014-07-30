@@ -47,8 +47,8 @@ class Main extends CI_Controller {
 
         $this->form_validation->set_rules('username','Username', 'required|trim|xss_clean|callback_validate_credentials');
         $this->form_validation->set_rules('password','Password', 'required|md5');
-
         if($this->form_validation->run() ){
+            if($this->validate_credentials($this->input->post('email'),$this->input->post('password')))
             $data = array(
                 'username' => $this->input->post('username'),
                 'is_logged_in' => true
@@ -102,10 +102,10 @@ class Main extends CI_Controller {
 
 
 
-    public function validate_credentials(){
+    public function validate_credentials($email,$pass){
         $this->load->model('model_users');
 
-        if($this->model_users->can_log_in()){
+        if($this->model_users->can_log_in($email,$pass)){
             return true;
         }
         else{

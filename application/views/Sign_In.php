@@ -26,7 +26,7 @@
             <?php  echo validation_errors(); ?>
             <h2>Sign in to GPS </h2>
             <div id="forms">
-                <input class="input" id="username" type="text" name="username" placeholder= "Username">
+                <input class="input" id="email" type="text" name="email" placeholder= "Email">
                 <p><input class="input" id="password" type="password" name="password" title="Password" size="10" placeholder= "Password"/></p>
                 <div>
                     <p><input id="get_started" type="submit" value="GET STARTED!">

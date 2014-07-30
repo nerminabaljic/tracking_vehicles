@@ -2,9 +2,9 @@
 
 class Model_users extends CI_Model{
 
-    public function can_log_in(){
-        $this->db->where('email', $this->input->post('email'));
-        $this->db->where('password',md5($this->input->post('password')));
+    public function can_log_in($email,$pass){
+        $this->db->where('email',$email);
+        $this->db->where('password',md5($pass));
 
         $query = $this->db->get('user');
 
