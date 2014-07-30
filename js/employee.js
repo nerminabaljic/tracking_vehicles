@@ -6,7 +6,7 @@ $(document).ready(function(){
         bprocessing: true,
         bserverSide: true,
         bAutoWidth: false,
-        //ajax: "data/objects.txt",
+        //ajax: "main/employee.php",
          columns: [
         	{ "data": "first_name" },
             { "data": "last_name" },

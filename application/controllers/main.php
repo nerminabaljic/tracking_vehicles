@@ -133,14 +133,14 @@ class Main extends CI_Controller {
 
             $this->email->from('NSoft.tracking.vehicles@gmail.com', 'Tracking Vehicles Administration');
             $this->email->to($email[$i]);
-            $this->email->subject("Invite to Sing_Up");
+            $this->email->subject("Invite to SingUp");
 
             $message = "<p>Korisnicko ime : ". $email[$i]."</p></br>" ;
             $password=$this->random_password(8);
 
             $message .= "<p>Lozinka je :".$password." </p></br>" ;
 
-            $message .="<p>Za aktivaciju vaseg racuna kliknite : <a href='".base_url()."main/invite_user/$key'>Ovdje</a>";
+            $message .="<p>Link za aktivaciju vaseg racuna je : <a href='".base_url()."main/invite_user/$key'>Ovdje</a>";
             $this->email->message($message);
 
             //send email   to the user
@@ -169,15 +169,12 @@ class Main extends CI_Controller {
 
 
 
-    public function Invite()
-    {
-        $this->load->view('Invite.php');
-    }
 
-    public function logirajSe(){
+
+    public function Invite(){
         $this->loadPage("Invite.php");
     }
-    public function korisnici(){
+    public function employee(){
 
         $this->load->model('model_users');
 
