@@ -2,8 +2,7 @@ body {
 background: #B8B8B8;
 max-width: 100%;
 height: auto;
-position: absolut;
-padding-top: 10px;
+position: absolute;
 font-family: Times New Roman;
 }
 #container {
@@ -24,7 +23,7 @@ img{
 	text-align: center;
 	max-width: 100%;
 	height: auto;
-	width: auto;
+    width: auto;
 }
 
 
