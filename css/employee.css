@@ -16,3 +16,6 @@ td{
 table.dataTable.no-footer{
     border-bottom:0px !important;
 }
+.ui-widget-header{
+    background: radial-gradient(#fdfdfd, #adb5b7) !important;
+}

@@ -11,13 +11,14 @@
 <body>
 
 <div id = "container">
+    <div id="grad1">
     <header>
         <figure>
-            <img src="<?php echo base_url();?>/images/heading.png" alt="GPS">
+            <img src="<?php echo base_url();?>/images/GPS,jpg" alt="GPS">
         </figure>
     </header>
 
-    <div id="content"><br><br>
+    <div id="content" class="grad2"><br><br>
         <h2>Forgot your password?</h2>
 
         <?php  echo form_open('main/send');?>
@@ -33,8 +34,10 @@
                     <span id="error"></span>
             </div> <!-- forms -->
         </div><!-- forgot_your_password --> <br><br>
+    </div>
     </div> <!-- content --><br><br>
 </div> <!-- container -->
+</div>
 
 
 <script src="<?php echo base_url();?>/lib/jquery-1.11.1.min.js"></script>

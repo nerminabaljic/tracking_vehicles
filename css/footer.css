@@ -7,3 +7,9 @@ img{
     height: 150px;
     width: auto;
 }
+#grad{
+    padding: 5px;
+    height: 100%;
+    width: 100% ;
+    background: radial-gradient(#C9F2FF, #82A7B7);
+}

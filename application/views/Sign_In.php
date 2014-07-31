@@ -13,13 +13,15 @@
 <body>
 
 <div id = "container">
+    <div id="grad1">
     <header>
         <figure>
-            <img src="<?php echo base_url();?>/images/heading.png" alt="GPS">
+            <img src="<?php echo base_url();?>/images/GPS.jpg" alt="GPS">
         </figure>
     </header>
 
     <div id="content">
+        <div class="grad2">
         <div id="sign_in_form">
 
             <?php  echo form_open('main/login_validation');?>
@@ -108,14 +110,9 @@
             ?>
 
         </div> <!-- sign_in_form -->
+        </div>
     </div> <!-- content --><br/><br/>
-
-
 </div> <!-- container -->
-
-
-
+</div>
 </body>
-
-
 </html>

@@ -11,7 +11,7 @@
     </tbody>
     <div id="invite" class ="col-md-2">
         <ul class= "nav nav-pills nav-stacked">
-            <li class="active"><a href = "<?php echo site_url('main/logirajSe');?>"">Invite employee</a></li>
+            <li class="active"><a href = "<?php echo site_url('main/invite');?>"">Invite employee</a></li>
         </ul>
     </div>
 

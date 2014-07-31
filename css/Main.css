@@ -12,9 +12,13 @@ font-family: Times New Roman;
 	max-width: 800px;
 	width: 80%;
 	height: auto;
-	border: 2px solid #000000;
+	border: 2px solid #737879;
 	background: #FFFFFF	;
 	box-shadow: 20px 20px 10px #A8A8A8;
+    padding: 5px;
+    height: 100%;
+    width: 100% ;
+    background: radial-gradient(#C9F2FF, #82A7B7);
 }
 img{
 	text-align: center;
@@ -25,7 +29,12 @@ img{
 
 
 
-
+.grad2{
+    padding: 5px;
+    height: 100%;
+    width: 100% ;
+    background: radial-gradient(#fefefe, #adb5b7);
+}
 
 
 

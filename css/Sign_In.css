@@ -43,8 +43,9 @@
 	max-width: 120px;
 	width: 80%;
 	border: 2px solid #A8A8A8;
-	background: #D0D0D0;
+	background: #61C4E4;
 	border-radius: 3px;
+    background: linear-gradient(#6bdcff, #50a2bc);
 }
 #CANCEL{
 	position: relative;
@@ -52,13 +53,21 @@
 	max-width: 120px;
 	width: 80%;
 	border: 2px solid #A8A8A8;
-	background: #D0D0D0;
+	background: #61C4E4;
 	border-radius: 3px;
+    background: linear-gradient(#6bdcff, #50a2bc);
 }
 a {
 	text-decoration: none;
+    color: #42869b;
+}
+h2{
+    color: #346b7b;
 }
 
+p{
+    color: #2a5663;
+}
 
 
 
