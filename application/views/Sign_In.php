@@ -28,8 +28,7 @@
             <?php  echo validation_errors(); ?>
             <h2>Sign in to GPS </h2>
             <div id="forms">
-                <?php
-                $data = array(
+                <?php $data = array(
                     'name'        => 'email',
                     'id'          => 'email',
                     'value'       => $this->input->post('email'),
@@ -37,12 +36,9 @@
                     'class' => 'input',
                     'placeholder' => 'Email',
                     'type' => 'text'
-                );
-                echo form_input($data);
-                ?>
+                ); echo form_input($data); ?>
                  <p>
-                     <?php
-                     $data = array(
+                     <?php $data = array(
                          'name'        => 'password',
                          'id'          => 'password',
                          'maxlength'   => '200',
@@ -50,14 +46,11 @@
                          'placeholder' => 'Password',
                          'type' => 'password',
                          'title' => 'Password'
-                     );
-                     echo form_input($data);
-                     ?>
+                     ); echo form_input($data); ?>
                  </p>
                 <div>
                     <p>
                         <input id="get_started" type="submit" value="GET STARTED!">
-
                         <input id="CANCEL" type="reset" value="CANCEL"></p>
                 </div>
             </div>

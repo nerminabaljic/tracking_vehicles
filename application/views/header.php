@@ -29,10 +29,16 @@
 
 <body>
 
-            <figure id="grad">
-                <img src="<?php echo base_url();?>/images/GPS.jpg" alt="GPS">
-            </figure>
+<div class="row">
 
+        <div class="well">
+            <figure>
+                <img src="<?php echo base_url();?>/images/header.png" alt="GPS">
+            </figure>
+        </div>
+
+
+</div>
 
 
 
