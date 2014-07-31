@@ -3,11 +3,14 @@
 
     <label id="greske" hidden></label>
 
+    <input type="text" id="url_base" name="first_name" value="<?php echo base_url(); ?>" hidden="hidden">
+
     <form class="form-inline" id="myForm" method="post" target="_parent">
-        <input type="text" name="first_name" class="form-control" id="first_name" placeholder="Enter first name"  value="<?php $this->input->post('first_name'); ?>">
-        <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Enter last name"  value="<?php $this->input->post('last_name'); ?>">
-        <input type="text" name="email" class="form-control" id="email" placeholder="Enter email"  value="<?php $this->input->post('email'); ?>">
-        <input  id="add_to_invite_submit"  name="add_to_invite_submit"  type="button" class="btn btn-default" value="  ADD ">
+        <input type="text" id="first_name" name="first_name" class="form-control" value="<?php $this->input->post('first_name'); ?>"  placeholder="Enter first name">
+
+        <input type="text" id="last_name" name="last_name" class="form-control" value="<?php $this->input->post('last_name'); ?>" placeholder="Enter last name">
+        <input type="text" id="email" name="email" class="form-control" value="<?php $this->input->post('email'); ?>" placeholder="Enter email">
+        <input id="add_to_invite_submit" type="button" class="btn btn-default" value="  ADD " name="submit">
         <br><br>
 
         <table class="table table-striped table-bordered tablesorter" id="tusers">
@@ -20,18 +23,18 @@
                 <th>Delete</th>
             </tr>
             </thead>
-            <tbody id="employee">
+            <tbody id="tijelo">
             </tbody>
         </table>
 
-        <button class="btn btn-default" id="invite_all_button">Submit</button>
+        <button class="btn btn-default" id="invite_all_button">Invite All</button>
 
         <br><br><br>
     </form>
+    <label id="succes" hidden></label>
+    <br>
+    <br>
 
-    <label id="send_message" hidden></label>
-
-    <br><br>
 
 
 
@@ -43,6 +46,7 @@
 <!--
 <script src="<?php echo base_url();?>/js/invite.js"></script>
 -->
+
 <script>
 
     $("#myForm").submit(function(){
@@ -72,8 +76,8 @@
             $("#greske").fadeIn(200);
         }else{
             var valid=true;
-            var email_array= [];
-            $("#employee").find(".email_td").each(function(){
+
+            $("#tijelo").find(".email_td").each(function(){
                 if($(this).text() == email )
                     valid=false;
             });
@@ -85,7 +89,7 @@
                 $("#greske").fadeIn(200);
             }
             else {
-                $("#employee").append(" <tr>\
+                $("#tijelo").append(" <tr>\
                 <td class='last_name_td'>" + last_name + "</td>\
                 <td class='first_name_td'>" + first_name + "</td>\
                 <td class='email_td'>" + email + "</td>\
@@ -98,50 +102,39 @@
                 $("#first_name").val("");
                 $("#email").val("");
 
-                $("#send_message").html("");
-                $("#send_message").fadeOut(200);
-
             }
         }
     });
 
     $("#invite_all_button").click(function(){
         var last_name = [];
-        $("#employee").find(".last_name_td").each(function(){
+        $("#tijelo").find(".last_name_td").each(function(){
             last_name.push($(this).text());
         });
-
         var first_name = [];
-        $("#employee").find(".first_name_td").each(function(){
+        $("#tijelo").find(".first_name_td").each(function(){
             first_name.push($(this).text());
         });
-
         var email = [];
-        $("#employee").find(".email_td").each(function(){
+        $("#tijelo").find(".email_td").each(function(){
             email.push($(this).text());
         });
+        var url = $("#url_base").val();
 
-
-
-        $.post("http://localhost/tracking_vehicles/main/invite_all", {
+        $.post(url+"main/invite_all", {
 
             "last_name" : last_name,
             "first_name" :first_name,
             "email" : email
         }, function(){
-            //prikazati poruku usjesnosti!
-
-
-
-            $("#send_message").html("Successfully send invitations!");
-            $("#send_message").addClass("alert").addClass("alert-success");
-            $("#send_message").fadeIn(200);
-
+            $("#succes").html("Successfully send invitations!");
+            $("#succes").addClass("alert").addClass("alert-success");
+            $("#succes").fadeIn(200);
         });
     });
-
-
     function deleteRow(td) {
         td.parentNode.parentNode.removeChild(td.parentNode);
     }
 </script>
+
+

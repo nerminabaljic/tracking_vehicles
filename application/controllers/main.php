@@ -45,27 +45,44 @@ class Main extends CI_Controller {
     public function login_validation(){
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('username','Username', 'required|trim|xss_clean|callback_validate_credentials');
+        $this->form_validation->set_rules('email','Email', 'required|trim|xss_clean|callback_validate_credentials');
         $this->form_validation->set_rules('password','Password', 'required|md5');
 
         if($this->form_validation->run() ){
-            $data = array(
-                'username' => $this->input->post('username'),
-                'is_logged_in' => true
 
-            );
-            $this->session->set_userdata($data);
-            redirect('main/Navigation');
+            if($this->validate_credentials($this->input->post('email'),$this->input->post('password'))) {
+                $this->set_session();
+                    redirect('main/Navigation');
+            }
         }
         else{
             $this->load->view("Sign_In");
         }
+    }
+    public function set_session()
+    {
+        $this->session_set_userdata(
+            array(
+                'email' => $this->input->post('email'),
+                'is_logged_in' => true
+            )
+        );
+    }
 
+    public function validate_credentials($email,$pass){
+        $this->load->model('model_users');
+
+        if($this->model_users->can_log_in($email,$pass)){
+            return true;
+        }
+        else{
+            $this->form_validation->set_message('validate_credentials','Incorrect username/password.');
+            return false;
+        }
     }
 
     public function forgot_password(){
         $this->load->view('form_forgot_password');
-
     }
 
    public function random_password($length){
@@ -99,20 +116,6 @@ class Main extends CI_Controller {
         else echo "This user doesnt exist". $this->input->post('email');
 
     }
-
-
-
-    public function validate_credentials(){
-        $this->load->model('model_users');
-
-        if($this->model_users->can_log_in()){
-            return true;
-        }
-        else{
-            $this->form_validation->set_message('validate_credentials','Incorrect username/password.');
-            return false;
-        }
-    }
      public function logout(){
         $this->session->sess_destroy();
         redirect('main/login');
@@ -133,14 +136,14 @@ class Main extends CI_Controller {
 
             $this->email->from('NSoft.tracking.vehicles@gmail.com', 'Tracking Vehicles Administration');
             $this->email->to($email[$i]);
-            $this->email->subject("Invite to Sing_Up");
+            $this->email->subject("Invite to SingUp");
 
             $message = "<p>Korisnicko ime : ". $email[$i]."</p></br>" ;
             $password=$this->random_password(8);
 
             $message .= "<p>Lozinka je :".$password." </p></br>" ;
 
-            $message .="<p>Za aktivaciju vaseg racuna kliknite : <a href='".base_url()."main/invite_user/$key'>Ovdje</a>";
+            $message .="<p>Link za aktivaciju vaseg racuna je : <a href='".base_url()."main/invite_user/$key'>Ovdje</a>";
             $this->email->message($message);
 
             //send email   to the user
@@ -169,15 +172,12 @@ class Main extends CI_Controller {
 
 
 
-    public function Invite()
-    {
-        $this->load->view('Invite.php');
-    }
 
-    public function logirajSe(){
+
+    public function Invite(){
         $this->loadPage("Invite.php");
     }
-    public function korisnici(){
+    public function employee(){
 
         $this->load->model('model_users');
 
@@ -209,6 +209,11 @@ class Main extends CI_Controller {
         $this->load->view("footer.php");
 
     }
+
+    public  function  test(){
+        $this->load->view("test.php");
+    }
+
 
 }
 

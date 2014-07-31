@@ -26,13 +26,33 @@
             <?php  echo validation_errors(); ?>
             <h2>Sign in to GPS </h2>
             <div id="forms">
-                <input class="input" id="username" type="text" name="username" placeholder= "Username">
-                <p><input class="input" id="password" type="password" name="password" title="Password" size="10" placeholder= "Password"/></p>
+                <?php $data = array(
+                    'name'        => 'email',
+                    'id'          => 'email',
+                    'value'       => $this->input->post('email'),
+                    'maxlength'   => '255',
+                    'class' => 'input',
+                    'placeholder' => 'Email',
+                    'type' => 'text'
+                ); echo form_input($data); ?>
+                 <p>
+                     <?php $data = array(
+                         'name'        => 'password',
+                         'id'          => 'password',
+                         'maxlength'   => '200',
+                         'class' => 'input',
+                         'placeholder' => 'Password',
+                         'type' => 'password',
+                         'title' => 'Password'
+                     ); echo form_input($data); ?>
+                 </p>
                 <div>
-                    <p><input id="get_started" type="submit" value="GET STARTED!">
+                    <p>
+                        <input id="get_started" type="submit" value="GET STARTED!">
                         <input id="CANCEL" type="reset" value="CANCEL"></p>
                 </div>
             </div>
+            <?php  echo form_close();?>
             <p id="forgot_password"><a href="<?php echo site_url('main/forgot_password')?>">Forgot Password?</a></p>
             <p id= "Gplus">Or sign up with: </p>
             <?php // index.php
@@ -80,7 +100,6 @@
             }
             ?>
 
-            <?php  echo form_close();?>
         </div> <!-- sign_in_form -->
     </div> <!-- content --><br/><br/>
 

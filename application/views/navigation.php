@@ -15,7 +15,7 @@
 
     <div class ="col-md-2">
         <ul class= "nav nav-pills nav-stacked">
-            <li><a href="<?php echo site_url('main/korisnici');?>" ">Employee</a></li>
+            <li><a href="<?php echo site_url('main/employee');?>" ">Employee</a></li>
             <li><a href = "<?php echo site_url('main/create_vehicles');?>" ">Create vehicle</a></li>
             <li><a href = "<?php echo site_url('main/vehicles');?>">Vehicle</a></li>
             <li><a href = '<?php echo base_url()."main/logout" ?>'>Logout</a></li>
