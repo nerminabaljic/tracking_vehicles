@@ -33,7 +33,7 @@
 
         <div class="well">
             <figure>
-                <img src="<?php echo base_url();?>/images/heading.png" alt="GPS">
+                <img src="<?php echo base_url();?>/images/header.png" alt="GPS">
             </figure>
         </div>
 
