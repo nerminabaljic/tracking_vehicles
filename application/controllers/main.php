@@ -41,20 +41,6 @@ class Main extends CI_Controller {
     public function Restricted(){
         $this->load->view("restricted");
     }
-    public function test_login()
-    {
-        $this->load->model('model_users');
-
-        if($this->model_users->login($this->input->post('email'),$this->input->post('password'))) {
-            $data = array(
-                'username' => $this->input->post('username'),
-                'is_logged_in' => true
-            );
-            $this->session->set_userdata($data);
-            redirect('main/Navigation');
-        }
-        else echo 'error';
-    }
 
     public function login_validation(){
         $this->load->library('form_validation');
@@ -65,18 +51,24 @@ class Main extends CI_Controller {
         if($this->form_validation->run() ){
 
             if($this->validate_credentials($this->input->post('email'),$this->input->post('password'))) {
-                $data = array(
-                    'username' => $this->input->post('username'),
-                    'is_logged_in' => true
-                );
-                $this->session->set_userdata($data);
-                redirect('main/Navigation');
+                $this->set_session();
+                    redirect('main/Navigation');
             }
         }
         else{
             $this->load->view("Sign_In");
         }
     }
+    public function set_session()
+    {
+        $this->session_set_userdata(
+            array(
+                'email' => $this->input->post('email'),
+                'is_logged_in' => true
+            )
+        );
+    }
+
     public function validate_credentials($email,$pass){
         $this->load->model('model_users');
 

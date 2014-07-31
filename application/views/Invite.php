@@ -3,6 +3,8 @@
 
     <label id="greske" hidden></label>
 
+    <input type="text" id="url_base" name="first_name" value="<?php echo base_url(); ?>" hidden="hidden">
+
     <form class="form-inline" id="myForm" method="post" target="_parent">
         <input type="text" id="first_name" name="first_name" class="form-control" value="<?php $this->input->post('first_name'); ?>"  placeholder="Enter first name">
 
@@ -30,6 +32,9 @@
         <br><br><br>
     </form>
     <label id="succes" hidden></label>
+    <br>
+    <br>
+
 
 
 
@@ -114,18 +119,22 @@
         $("#tijelo").find(".email_td").each(function(){
             email.push($(this).text());
         });
-        $.post("<?php echo base_url();?>/main/invite_all", {
+        var url = $("#url_base").val();
+
+        $.post(url+"main/invite_all", {
 
             "last_name" : last_name,
             "first_name" :first_name,
             "email" : email
         }, function(){
-            $("#send_message").html("Successfully send invitations!");
-            $("#send_message").addClass("alert").addClass("alert-success");
-            $("#send_message").fadeIn(200);
+            $("#succes").html("Successfully send invitations!");
+            $("#succes").addClass("alert").addClass("alert-success");
+            $("#succes").fadeIn(200);
         });
     });
     function deleteRow(td) {
         td.parentNode.parentNode.removeChild(td.parentNode);
     }
 </script>
+
+

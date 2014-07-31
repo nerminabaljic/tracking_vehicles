@@ -22,18 +22,18 @@ class Model_users extends CI_Model{
 	   }
 	 }
     public function can_log_in($email,$pass){
-        $this->db->where('email',$email);
-        $this->db->where('password',md5($pass));
+        $this->db->from('user');
+        $this->db->where('email', $email);
+        $this->db->where('password', $pass);
 
-        $query = $this->db->get('user');
+        $login = $this->db->get()->result();
 
-        if($query->num_rows()==1){
+        if(is_array($login) && count($login)==1)
+        {
             return true;
         }
-        else{
+        else
             return false;
-        }
-
 
     }
 
