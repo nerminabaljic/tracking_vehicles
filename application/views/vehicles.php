@@ -8,6 +8,12 @@
                 <td align="center" id="vehicle_status"></td>
             </tr>
         </tbody>
+        <div id="invite" class ="col-md-2">
+            <ul class= "nav nav-pills nav-stacked">
+                <li class="active"><a href = "<?php echo site_url('main/create_vehicles');?>" ">Create vehicle</a></li>
+            </ul>
+        </div>
+
     </table>
 
     <table id="vehicles"  class="display"  cellspacing="0" width="100%">

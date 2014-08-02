@@ -2,7 +2,6 @@ body {
 background: #B8B8B8;
 max-width: 100%;
 height: auto;
-position: absolute;
 font-family: Times New Roman;
 }
 #container {
@@ -25,9 +24,10 @@ img{
 	height: auto;
     width: auto;
 }
-
-
-
+#image{
+    height: 150px;
+    width: 80%;
+}
 .grad2{
     padding: 5px;
     height: 100%;

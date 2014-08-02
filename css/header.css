@@ -1,6 +1,9 @@
-#grad{
-    padding: 5px;
-    height: 100%;
-    width: 100% ;
-    background: radial-gradient(#C9F2FF, #82A7B7);
+.well{
+    background: radial-gradient(#C9F2FF, #82A7B7) !important;
+}
+img{
+    text-align: center;
+    max-width: 100%;
+    height: 150px;
+    width: 80%;
 }

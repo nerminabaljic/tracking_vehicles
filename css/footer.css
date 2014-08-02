@@ -1,15 +1,9 @@
 h5{
-   text-align: center;
+    text-align: center;
 }
 img{
     margin-left: 25%;
     max-width: 100%;
     height: 150px;
     width: auto;
-}
-#grad{
-    padding: 5px;
-    height: 100%;
-    width: 100% ;
-    background: radial-gradient(#C9F2FF, #82A7B7);
 }
