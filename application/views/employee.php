@@ -11,7 +11,7 @@
     </tbody>
     <div id="invite" class ="col-md-2">
         <ul class= "nav nav-pills nav-stacked">
-            <li class="active"><a href = "<?php echo site_url('main/invite');?>"">Invite employee</a></li>
+            <li class="active"><a href = "<?php echo site_url('main/invite');?>">Invite employee</a></li>
         </ul>
     </div>
 
@@ -49,6 +49,7 @@
                 <td></td>
                 <td></td>
                 <td>Aktivan</td>
+                <td><a href = "<?php echo site_url('main/edit_employee');?>">Edit</a>  <a href="" class="editor_remove">Delete</a></td>
             </tr>
         <?php }?>
         </tbody>

@@ -15,13 +15,13 @@
 
     <div class ="col-md-2">
         <div class="well">
-        <ul class= "nav nav-pills nav-stacked">
-            <li><a href = "<?php echo site_url('main/employee');?>" ">Employee</a></li>
-            <li><a href = "<?php echo site_url('main/vehicles');?>">Vehicle</a></li>
-            <li><a href = "<?php echo site_url('main/vehicles');?>">Maps</a></li>
-            <li><a href = '<?php echo base_url()."main/logout" ?>'>Logout</a></li>
-        </ul>
-    </div>
+            <ul class= "nav nav-pills nav-stacked">
+                <li><a href = "<?php echo site_url('main/employee');?>" ">Employees</a></li>
+                <li><a href = "<?php echo site_url('main/vehicles');?>">Vehicles</a></li>
+                <li><a href = "<?php echo site_url('main/maps');?>">Maps</a></li>
+                <li><a href = '<?php echo base_url()."main/logout" ?>'>Logout</a></li>
+            </ul>
+         </div>
     </div>
     <script src="<?php echo base_url();?>/bootstrap3.2/js/bootstrap.min.js"></script>
 </body>

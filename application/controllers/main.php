@@ -195,6 +195,12 @@ class Main extends CI_Controller {
     public function edit_employee(){
         $this->loadPage("edit_employee.php");
     }
+    public function edit_vehicles(){
+        $this->loadPage("edit_vehicles.php");
+    }
+    public function maps(){
+        $this->loadPage("karta.php");
+        }
     public  function  loadPage($url)
     {
         $this->load->view("header.php");

@@ -1,3 +1,10 @@
+body {
+
+    max-width: 100%;
+    height: auto;
+    position:relative;
+}
+
 .well{
     background: radial-gradient(#C9F2FF, #82A7B7) !important;
 }
