@@ -52,7 +52,7 @@ class Main extends CI_Controller {
 
             if($this->validate_credentials($this->input->post('email'),$this->input->post('password'))) {
                 $this->set_session();
-                    redirect('main/Navigation');
+                    redirect('main/maps');
             }
         }
         else{
@@ -61,7 +61,7 @@ class Main extends CI_Controller {
     }
     public function set_session()
     {
-        $this->session_set_userdata(
+        $this->session->set_userdata(
             array(
                 'email' => $this->input->post('email'),
                 'is_logged_in' => true
