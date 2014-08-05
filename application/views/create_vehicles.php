@@ -11,6 +11,7 @@
         <span class='label label-info' id="upload-file-info"></span>
     </div>
     <br>
+
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Name of vehicle" value="<?php $this->input->post('name_of_vehicle'); ?>">
         </div>
