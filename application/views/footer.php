@@ -1,9 +1,8 @@
-<div id="footer">
-    <div class="well">
+<footer>
+    <div class="row">
         <h5>Copyright &copy; Smogovci </h5>
     </div>
-</div>
-
+</footer>
 
 </body>
 </html>

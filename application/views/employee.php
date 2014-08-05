@@ -1,22 +1,26 @@
-
 <div class ="col-md-9">
     <table id="filter" style="width: 50%; margin: 1em;" cellpadding="3" cellspacing="0" border="0">
 
     <tbody>
-        <tr>
+         <tr>
             <td align="center" id="gender"></td>
             <td align="center" id="position"></td>
             <td align="center" id="status"></td>
-        </tr>
+         </tr>
     </tbody>
-    <div id="invite" class ="col-md-2">
-        <ul class= "nav nav-pills nav-stacked">
-            <li class="active"><a href = "<?php echo site_url('main/invite');?>">Invite employee</a></li>
-        </ul>
+
+    <div id="invite"
+        <div class ="col-md-2">
+            <div id="navigation">
+                <ul class="top-level">
+                    <li class="invite"><a href = "<?php echo site_url('main/invite');?>">Invite employee</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
+<br>
+</table>
 
-
-    </table>
 
 
     <table id="example"  class="display"  cellspacing="0" width="100%">
@@ -64,4 +68,4 @@
 
     <script src="<?php echo base_url();?>/js/employee.js"></script>
 </div>
-</div>
+

@@ -1,6 +1,27 @@
-.col-md-2{
-    margin: 5px;
+#navigation { width:150px; margin-top: 15px;}
+#navigation ul { margin:0; padding:0; }
+#navigation li { list-style: none; }
+ul.top-level { background:#3299bb; }
+
+ul.top-level li {
+    border-bottom: #fff solid;
+    border-top: #fff solid;
+    border-width: 1px;
+}
+#navigation a {
+    color: #fff;
+    cursor: pointer;
+    display:block;
+    height:50px;
+    line-height: 50px;
+    text-decoration:none;
+    width:100%;
 }
 
-
-
+#navigation a:hover{
+    text-decoration:underline;
+}
+#navigation li:hover {
+    background: #f90;
+    position: relative;
+}

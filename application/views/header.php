@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/footer.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/invite.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/employee.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/container.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/create_vehicles.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/maps.css">
 
@@ -48,16 +49,13 @@
 
 </head>
 <body>
-
-    <div class="row">
-        <div class="well">
-
+    <header>
+         <div class="well">
             <figure>
-                <img src="<?php echo base_url();?>/images/GPS.jpg" id="image" alt="GPS">
+                <img src="<?php echo base_url();?>/images/GPS-image.jpg" id="image" alt="GPS">
             </figure>
-        </div>
-    </div>
-
+         </div>
+    </header>
 
 
 

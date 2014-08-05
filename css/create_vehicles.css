@@ -35,3 +35,7 @@ body{
     background-color:transparent;
     color:transparent;
 }
+a.btn.btn-default{
+    float: left;
+    clear: left;
+}
