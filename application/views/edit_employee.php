@@ -23,7 +23,7 @@
         </div>
 
         <input placeholder="Date of birth " class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" >
-        <br>
+    <br>
 
         <select  class="form-control">
             <option>Gender</option>

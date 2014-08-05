@@ -2,11 +2,11 @@
     <table id="filter" style="width: 50%; margin: 1em;" cellpadding="3" cellspacing="0" border="0">
 
     <tbody>
-        <tr>
+         <tr>
             <td align="center" id="gender"></td>
             <td align="center" id="position"></td>
             <td align="center" id="status"></td>
-        </tr>
+         </tr>
     </tbody>
 
     <div id="invite"
