@@ -24,5 +24,5 @@
   </head>
   <body>
     <div id="map-canvas"/>
-  </body>
-</html>
+  <br>
+
