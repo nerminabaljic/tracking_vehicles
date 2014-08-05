@@ -25,10 +25,9 @@ $(document).ready(function(){
         aoColumns:[
             null, null,
             { sSelector:"#registration", type:"select"},
-            null,
             { sSelector: "#type", type:"select" },
             { type:"select", sSelector: "#vehicle_status" },
-            null, null
+            null, null,null
         ]
     });
 

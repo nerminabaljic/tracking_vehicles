@@ -26,11 +26,11 @@
                 <th>Name of vehicle"</th>
                 <th>Registration marks</th>
                 <th>Date of last registration</th>
-                <th>Icon</th>
                 <th>Type of vehicle</th>
                 <th>Status</th>
                 <th>Fuel type</th>
-                <th>Picture of vehicle</th>
+                <th>Icon</th>
+                <th>Action</th>
             </tr>
         </thead>
 
