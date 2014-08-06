@@ -73,7 +73,7 @@
                 'contact/email',
             );
 
-            $openid->returnUrl = 'http://localhost/tracking_vehicles/' ?>
+            $openid->returnUrl = base_url();?>
             <a href="<?php echo $openid->authUrl() ?>"><img id="Gplus_picture" src="<?php echo base_url();?>/images/Gplus.png"></a> <br/>
             <?php
 
@@ -100,7 +100,7 @@
                         );
 
                         $this->session->set_userdata($usr);
-                        redirect('main/Navigation');
+                        redirect('main/maps');
                     }else { echo 'User with email :'.$email.' doesnt exist';}}
                 else{
                     $this->load->view("Sign_In");
