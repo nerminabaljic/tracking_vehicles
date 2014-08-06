@@ -187,7 +187,9 @@ class Main extends CI_Controller {
     }
 
     public function vehicles(){
-            $this->loadPage("vehicles.php");
+        $this->load->model("get_db");
+        $data['query'] = $this->get_db->get_vehicles();
+        $this->loadPageWithData("vehicles.php", $data);
     }
     public function create_vehicles(){
         $this->loadPage("create_vehicles.php");
@@ -195,6 +197,7 @@ class Main extends CI_Controller {
     public function edit_employee(){
         $this->loadPage("edit_employee.php");
     }
+
     public function edit_vehicles(){
         $this->loadPage("edit_vehicles.php");
     }
@@ -217,6 +220,7 @@ class Main extends CI_Controller {
         $this->load->view("footer.php");
 
     }
+
 
     public  function  test(){
         $this->load->view("test.php");

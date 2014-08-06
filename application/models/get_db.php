@@ -43,5 +43,9 @@ $this->db->insert_batch("user",$data);
         $this->db->empty($table);
 
 }
+    function get_vehicles(){
+       return $query = $this->db->query("SELECT * FROM vehicle");
+       
+    }
 
 }

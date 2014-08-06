@@ -53,7 +53,7 @@
                 <td></td>
                 <td></td>
                 <td>Aktivan</td>
-                <td><a href = "<?php echo site_url('main/edit_employee');?>">Edit</a>  <a href="" class="editor_remove">Delete</a></td>
+                <td><a href = "<?php echo site_url('main/edit_vehicles');?>">Edit</a>  <a href="" class="editor_remove">Delete</a></td>
             </tr>
         <?php }?>
         </tbody>

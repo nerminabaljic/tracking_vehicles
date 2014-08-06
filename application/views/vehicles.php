@@ -12,7 +12,7 @@
         <div class ="col-md-2">
             <div id="navigation">
                 <ul class="top-level">
-                <li class="active"><a href = "<?php echo site_url('main/create_vehicles');?>" ">Create vehicle</a></li>
+                <li class="active"><a href = "<?php echo site_url('main/create_vehicles');?>" >Create vehicle</a></li>
             </ul>
             </div>
         </div>
@@ -23,7 +23,7 @@
     <table id="vehicles"  class="display"  cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>Name of vehicle"</th>
+                <th>Name of vehicle</th>
                 <th>Registration marks</th>
                 <th>Date of last registration</th>
                 <th>Type of vehicle</th>
@@ -34,7 +34,23 @@
             </tr>
         </thead>
 
-        <tbody></tbody>
+        <tbody>
+             
+            <tr>
+                <?php foreach ($query->result_array() as $key) {
+                 ?>
+                <td><?php echo $key['vehicle_name'];?></td>
+                <td><?php echo $key['licence_plates'];?></td>
+                <td><?php echo $key['registration_date'];?></td>
+                <td><?php echo $key['vehicle_type'];?></td>
+                <td>A<?php echo $key['vehicle_status'];?></td>
+                <td><?php echo $key['fuel_type'];?></td>
+                <td><?php echo $key['icon'];?></td>
+                <td><a href = "<?php echo site_url('main/edit_vehicles');?>">Edit</a>  <a href="" class="editor_remove">Delete</a></td>
+              
+            </tr>
+         <?php }?>
+        </tbody>
 
     </table>
     <br><br>
