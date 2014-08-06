@@ -193,6 +193,7 @@ class Main extends CI_Controller {
     }
     public function create_vehicles(){
         $this->loadPage("create_vehicles.php");
+
     }
     public function edit_employee(){
         $this->loadPage("edit_employee.php");
