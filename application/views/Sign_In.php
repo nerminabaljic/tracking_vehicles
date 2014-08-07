@@ -16,7 +16,7 @@
     <div id="grad1">
     <header>
         <figure>
-            <img src="<?php echo base_url();?>/images/GPS.jpg" id="image" alt="GPS">
+            <img src="<?php echo base_url();?>/images/GPS-image.jpg" id="image" alt="GPS">
         </figure>
     </header>
 

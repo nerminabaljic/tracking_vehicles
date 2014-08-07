@@ -14,11 +14,11 @@
     <div id="grad1">
     <header>
         <figure>
-            <img src="<?php echo base_url();?>/images/GPS.jpg" id="image" alt="GPS">
+            <img src="<?php echo base_url();?>/images/GPS-image.jpg" id="image" alt="GPS">
         </figure>
     </header>
 
-    <div id="content" class="grad2"><br><br>
+    <div id="content" ><br><br>
         <h2>Forgot your password?</h2>
 
         <?php  echo form_open('main/send');?>

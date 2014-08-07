@@ -1,3 +1,7 @@
+aside{
+    text-align: center;
+  ;
+}
 #navigation { width:150px; margin-top: 15px;}
 #navigation ul { margin:0; padding:0; }
 #navigation li { list-style: none; }

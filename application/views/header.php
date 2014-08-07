@@ -50,7 +50,7 @@
 </head>
 <body>
     <header>
-         <div class="well">
+
             <figure>
                 <img src="<?php echo base_url();?>/images/GPS-image.jpg" id="image" alt="GPS">
             </figure>

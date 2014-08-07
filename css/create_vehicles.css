@@ -1,41 +1,79 @@
-#content{
-    text-align: center;
+section{
     margin: 0 auto;
-    max-width: 200px;
-    width: 80%;
-    border: 2px solid #B0B0B0 ;
-    border-radius: 3px;
-    box-shadow: 10px 10px 10px #A8A8A8;
-    background:#FFFFFF;
-}
-body{
+    max-width: 60%;
     text-align: center;
-    margin-top: 100px;
-    background:#FFFFFF;
 }
 
-.form-control{
-    text-align: center;
+#profile{
+    margin-left: 30%;
 }
-.form-group{
-    text-align: center;
+#profile-avatar{
+    width: 150px;
+    height: 150px;
+    margin-top: 5px;
+    float: left;
+    border:1px solid #aaa;
+}
+#profile ul {
+    width:500px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+}
+#profile li{
+    padding:12px;
+    position:relative;
+}
+#profile label {
+    text-align: left;
+    width:200px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+    color:#585858;
+}
+#profile input,#profile select  {
+    height:30px;
+    width:220px;
+
+}
+#profile button {margin-left:156px;}
+
+#profile input, #profile select {
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+}
+#profile input:focus,{
+    background: #fff;
+    border:1px solid #555;
+    box-shadow: 0 0 3px #aaa;
+}
+a.btn.btn-default{
+    width: 150px;
+    float: left;
+    margin-top: 15px;
+    color:#3278b3 !important;
 }
 .table-responsive{
-    width: 20%;
+    width: 200px;
     display:inline-block;
+    float: left;
 }
 .file{
     position:absolute;
     z-index:2;
     top:0;
-    left:0;
+
     filter: alpha(opacity=0);
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     opacity:0;
     background-color:transparent;
     color:transparent;
 }
-a.btn.btn-default{
-    float: left;
-    clear: left;
+.btn-default{
+    width: 150px;
+    color:#3278b3 !important;
 }
