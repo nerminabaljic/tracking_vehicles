@@ -1,7 +1,8 @@
 #map-canvas{
 
-    height: 500px;
+    height: 600px;
     width: 1000px;
+    margin: 13px;
     border: 2px solid;
-    border-color: #3299BB;
+    border-color: #BCBCBC;
 }
