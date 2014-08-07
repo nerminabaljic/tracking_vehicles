@@ -43,7 +43,7 @@
                 <td><?php echo $key['licence_plates'];?></td>
                 <td><?php echo $key['registration_date'];?></td>
                 <td><?php echo $key['vehicle_type'];?></td>
-                <td>A<?php echo $key['vehicle_status'];?></td>
+                <td><?php echo $key['vehicle_status'];?></td>
                 <td><?php echo $key['fuel_type'];?></td>
                 <td><?php echo $key['icon'];?></td>
                 <td><a href = "<?php echo site_url('main/edit_vehicles');?>">Edit</a>  <a href="" class="editor_remove">Delete</a></td>
@@ -53,7 +53,7 @@
         </tbody>
 
     </table>
-    <br><br>
+    <br><br><br><br><br><br>
 
 <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.1/js/jquery.dataTables.js"></script> <!-- DataTables -->
 <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/plug-ins/be7019ee387/integration/jqueryui/dataTables.jqueryui.js"></script>

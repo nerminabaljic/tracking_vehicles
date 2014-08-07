@@ -6,20 +6,7 @@ $(document).ready(function(){
         bprocessing: true,
         bserverSide: true,
         bAutoWidth: false
-        //ajax: "data/objects.txt",
-        // columns: [
-        //	{ "data": "first_name" },
-        //  { "data": "last_name" },
-        //	{ "data": "email" },
-        //	{ "data": "date_of_birth" },
-        //	{ "data": "gender" },
-        // { "data": "position" },
-        //   { "data": "mobile_number" },
-        //   { "data": "address" },
-        //  { "data": "status" }
-        //]
-
-    });
+ });
     $('#vehicles').dataTable().columnFilter({
         sPlaceHolder: "head:before",
         aoColumns:[
@@ -30,5 +17,17 @@ $(document).ready(function(){
             null, null,null
         ]
     });
+    $('#vehicles tbody td').each( function() {
+        this.setAttribute( 'title', $(this).text());
+
+    });
+    var oTable = $('#example').dataTable();
+
+    /* Apply the tooltips */
+    $( oTable.fnGetNodes() ).tooltip( {
+        "delay": 0,
+        "track": true,
+        "fade": 250
+    } );
 
 });

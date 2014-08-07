@@ -1,13 +1,13 @@
 <section>
-    <h2 style="color:#585858 ">Vehicle profile </h2>
+    <h2 style="color:#585858 ">Add Vehicle </h2>
+
     <div class="table-responsive">
-        <div style="position:relative;">
+        <div style="position:relative">
             <img src="<?php echo base_url();?>/images/car.jpg" id="profile-avatar" alt="Image for Profile">
 
             <a class='btn btn-default' href='javascript:;'>
-
-                Insert a picture
                 <input type="file" class="file" name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+                Insert a picture
             </a>
             &nbsp;
             <span class='label label-info' id="upload-file-info"></span>
@@ -63,12 +63,10 @@
                 </select>
             </li>
         </ul>
-
     </div>
-    <br>
-    <input class="btn btn-default" type="submit" value="UPDATE" name="UPDATE">
-    <input class="btn btn-default" type="reset" value="CANCEL" name="CANCEL">
-    <br><br><br><br><br><br>
+
+
+    <br><br><br>
 </section>
 
 

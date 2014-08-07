@@ -1,82 +1,67 @@
 #content{
-	text-align: center;
-	margin: 0 auto;
-	max-width: 400px;
-	width: 80%;
-	border: 2px solid #A8A8A8;
-    padding: 5px;
-    height: 100%;
-    width: 100% ;
-    background: #BCBCBC;
-
+    text-align: center;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 80%;
+    border: 2px solid #A8A8A8;
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: 10px 10px 10px #A8A8A8;
 }
 #Gplus {
-	text-align: center;
-	margin: 0 auto;
-	max-width: 150px;
-	width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 150px;
+    width: 80%;
     padding-top: 4px;
-	padding-bottom: 4px;
-	
+    padding-bottom: 4px;
+
 }
 #Gplus_picture{
     margin: 0 auto;
-	max-width: 20px;
-	width: 80%;
-	padding-top: 4px;
-	padding-bottom: 4px;
-	
+    max-width: 20px;
+    width: 80%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
 }
 #forms{line-height:200%;}
 .input{
-	position: relative;
-	padding: 9px;
-	max-width: 200px;
-	margin: 0;
-	width: 80%;
-	border: 2px solid #A8A8A8;
-	background: #FFFFFF;
-	font-size: 16px;
-	clear:left;
+    position: relative;
+    padding: 9px;
+    max-width: 200px;
+    margin: 0;
+    width: 80%;
+    border: 2px solid #A8A8A8;
+    background: #FFFFFF;
+    font-size: 16px;
+    clear:left;
 }
 #get_started{
-	position: relative;
-	padding: 9px;
-	max-width: 120px;
-	width: 80%;
-	border: 2px solid #A8A8A8;
-	background: #3299bb;
-	border-radius: 3px;
-    background: linear-gradient(#6bdcff, #50a2bc);
+    color:#FFFFFF;
+    position: relative;
+    padding: 9px;
+    max-width: 120px;
+    width: 80%;
+    background: #3299BB;
 }
 #CANCEL{
-	position: relative;
-	padding: 9px;
-	max-width: 120px;
-	width: 80%;
-	border: 2px solid #A8A8A8;
-	background: #61C4E4;
-	border-radius: 3px;
-    background: linear-gradient(#6bdcff, #50a2bc);
+    position: relative;
+    padding: 9px;
+    max-width: 120px;
+    width: 80%;
+    background:#3299BB;
+    color:#FFFFFF;
+
 }
 a {
-	text-decoration: none;
+    text-decoration: none;
     color: #42869b;
 }
 h2{
-    color: #346b7b;
+    color: #1c566a;
 }
 
 p{
-    color: #2a5663;
+    color: #1c566a;
 }
-
-
-
-
-
-
-
-
-
-

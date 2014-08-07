@@ -7,10 +7,9 @@
             <img src="<?php echo base_url();?>/images/default_user_icon.jpg" id="profile-avatar" alt="Image for Profile">
 
             <a class='btn btn-default' href='javascript:;'>
-
-                Insert a picture
                 <input type="file" class="file" name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
-            </a>
+
+                Insert a picture</a>
             &nbsp;
             <span class='label label-info' id="upload-file-info"></span>
         </div>

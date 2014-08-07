@@ -1,39 +1,36 @@
 body {
-background: #B8B8B8;
-max-width: 100%;
-height: auto;
-font-family: Times New Roman;
+    background: #efefef;
+    max-width: 100%;
+    height: auto;
+    font-family: Times New Roman;
 }
 #container {
-	text-align: center;
-	margin: 0 auto;
-	max-width: 800px;
-	width: 80%;
-	height: auto;
-	border: 2px solid #737879;
-	box-shadow: 20px 20px 10px #A8A8A8;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 80%;
+    height: auto;
+    border: 2px solid #737879;
+    background: #FFFFFF	;
+    box-shadow: 20px 20px 10px #A8A8A8;
     padding: 5px;
     height: 100%;
     width: 100% ;
-    background: #3299bb;
+    background: #3299BB;
 }
 img{
     text-align: center;
-	max-width: 100%;
-	height: auto;
+    max-width: 100%;
+    height: auto;
     width: auto;
 }
 #image{
     height: 150px;
     width: 80%;
 }
-
-
-
-
-
-
-
-
-
-
+.grad2{
+    padding: 5px;
+    height: 100%;
+    width: 100% ;
+    background: #efefef;
+}

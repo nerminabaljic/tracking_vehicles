@@ -1,6 +1,7 @@
 section{
     margin: 0 auto;
-    max-width: 60%;
+    max-width: 80%;
+    margin-left: 200px;
     text-align: center;
 }
 
@@ -55,25 +56,23 @@ a.btn.btn-default{
     width: 150px;
     float: left;
     margin-top: 15px;
-    color:#3278b3 !important;
+
 }
 .table-responsive{
-    width: 200px;
+    width: 20%;
     display:inline-block;
     float: left;
 }
 .file{
-    position:absolute;
+
+    height: 4px ;
     z-index:2;
     top:0;
-
+    left:0;
     filter: alpha(opacity=0);
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     opacity:0;
     background-color:transparent;
     color:transparent;
-}
-.btn-default{
-    width: 150px;
-    color:#3278b3 !important;
+
 }
