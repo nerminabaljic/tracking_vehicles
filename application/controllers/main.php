@@ -171,9 +171,6 @@ class Main extends CI_Controller {
     }
 
 
-
-
-
     public function Invite(){
         $this->loadPage("Invite.php");
     }
@@ -192,9 +189,44 @@ class Main extends CI_Controller {
         $this->loadPageWithData("vehicles.php", $data);
     }
     public function create_vehicles(){
+
         $this->loadPage("create_vehicles.php");
+    }
+    public function insert_vehicle(){
+
+        $this->load->model('get_db');
+
+        if($this->input->post('UPDATE')!= ''){
+
+           $name = $_POST['name'];
+           $registration = $this->input->post('registration');
+           $date_of_lst_registration = $this->input->post('date_of_lst_registration');
+           $type_vehicle = $this->input->post('type_vehicle');
+           $status = $this->input->post('status');
+           $fuel_type = $this->input->post('fuel_type');
+           $icon = $this->input->post('icon');
+
+
+           $data= array(
+                'vehicle_name' => $name,
+                'vehicle_type' => $type_vehicle,
+                'vehicle_status' => $status,
+                'licence_plates' => $registration,
+                'icon' => $icon,
+                'photo' => '',
+                'fuel_type'=> $fuel_type,
+                'registration_date'=> $date_of_lst_registration,
+            );
+            $this->get_db->insert_vehicle($data);
+
+            $this->load->view("header.php");
+            $this->load->view("Sucess.php");
+            $this->load->view("footer.php");
+
+        }
 
     }
+
     public function edit_employee(){
         $this->loadPage("edit_employee.php");
     }
@@ -226,8 +258,6 @@ class Main extends CI_Controller {
     public  function  test(){
         $this->load->view("test.php");
     }
-
-
 }
 
 

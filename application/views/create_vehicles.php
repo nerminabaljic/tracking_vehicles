@@ -16,6 +16,7 @@
 
 
     <div id="profile">
+    <?php  echo form_open('main/insert_vehicle');?>
     <ul>
         <li>
             <label for="name">Name of vehicle:</label>
@@ -23,15 +24,15 @@
         </li>
         <li>
             <label for="name">Registration marks:</label>
-            <input type="text" name="name" />
+            <input type="text" name="registration" />
         </li>
         <li>
             <label for="name">Date of last registration:</label>
-            <input  type="text" onfocus="(this.type='date')" onblur="(this.type='text')" value="<?php $this->input->post('date_of_lst_registration'); ?>">
+            <input  type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_of_lst_registration" value="<?php $this->input->post('date_of_lst_registration'); ?>">
         </li>
         <li>
             <label for="name">Type of vehicle:</label>
-            <select>
+            <select name="type_vehicle">
                 <option></option>
                 <option>Limousine</option>
                 <option>Caravan</option>
@@ -40,7 +41,7 @@
         </li>
         <li>
             <label for="name">Status</label>
-            <select >
+            <select name="status">
                 <option></option>
                 <option>Active</option>
                 <option>Inactive</option>
@@ -48,7 +49,7 @@
         </li>
         <li>
             <label for="name">Fuel type</label>
-            <select >
+            <select name="fuel_type" >
                 <option></option>
                 <option>Diesel</option>
                 <option>Benzine</option>
@@ -56,7 +57,7 @@
         </li>
         <li>
             <label for="name">Icon</label>
-            <select >
+            <select name="icon" >
                 <option></option>
                 <option></option>
                 <option></option>
@@ -64,11 +65,14 @@
         </li>
     </ul>
 
+
     </div>
     <br>
     <input class="btn btn-default" type="submit" value="UPDATE" name="UPDATE">
     <input class="btn btn-default" type="reset" value="CANCEL" name="CANCEL">
+    <?php  echo form_close();?>
     <br><br><br><br><br><br>
+
 </section>
 
 

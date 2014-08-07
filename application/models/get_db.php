@@ -48,4 +48,12 @@ $this->db->insert_batch("user",$data);
        
     }
 
+    function insert_vehicle($data){
+       return $query = $this->db->insert('vehicle', $data);
+
+    }
+
+
+
+
 }
