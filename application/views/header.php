@@ -50,11 +50,11 @@
 </head>
 <body>
     <header>
-
-            <figure>
+            <div id="row"></div>
+          <!--  <figure>
                 <img src="<?php echo base_url();?>/images/GPS-image.jpg" id="image" alt="GPS">
-            </figure>
-         </div>
+            </figure>-->
+
     </header>
 
 

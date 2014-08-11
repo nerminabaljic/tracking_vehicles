@@ -1,15 +1,22 @@
-aside{
-    text-align: center;
+ .col-md-2{
+    text-align:left ;
+    width: 150px !important;
+    height: 150%;
+    background-color: #424242;
+    padding: 0 !important;
+
 }
-#navigation { width:150px; margin-top: 15px;}
+#navigation { width:150px; margin-top: 110px;  margin-left: 0px !important;}
 #navigation ul { margin:0; padding:0; }
 #navigation li { list-style: none; }
-ul.top-level { background:#3299bb; }
+
+#icon{
+    width: 25px;
+    height: 25px;
+}
 
 ul.top-level li {
-    border-bottom: #fff solid;
-    border-top: #fff solid;
-    border-width: 1px;
+
 }
 #navigation a {
     color: #fff;
@@ -19,10 +26,11 @@ ul.top-level li {
     line-height: 50px;
     text-decoration:none;
     width:100%;
+    padding-left: 10px;
 }
 
 #navigation a:hover{
-    text-decoration:underline;
+    text-decoration: none;
 }
 #navigation li:hover {
     background: #f90;

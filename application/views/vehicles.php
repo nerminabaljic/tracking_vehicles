@@ -7,17 +7,9 @@
                 <td align="center" id="type"></td>
                 <td align="center" id="vehicle_status"></td>
             </tr>
+            <a href = "<?php echo site_url('main/create_vehicles');?>"><input type="button" id="buttons" value="Create vehicle"></a>
         </tbody>
-        <div id="invite"
-        <div class ="col-md-2">
-            <div id="navigation">
-                <ul class="top-level">
-                <li class="active"><a href = "<?php echo site_url('main/create_vehicles');?>" >Create vehicle</a></li>
-            </ul>
-            </div>
-        </div>
-    </div>
-<br>
+    <br>
  </table>
 
     <table id="vehicles"  class="display"  cellspacing="0" width="100%">

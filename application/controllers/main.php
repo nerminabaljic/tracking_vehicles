@@ -239,16 +239,16 @@ class Main extends CI_Controller {
         }
     public  function  loadPage($url)
     {
-        $this->load->view("header.php");
         $this->load->view("navigation.php");
+        $this->load->view("header.php");
         $this->load->view($url);
         $this->load->view("footer.php");
     }
 
     public function  loadPageWithData($url, $data)
     {
-        $this->load->view("header.php");
         $this->load->view("navigation.php");
+        $this->load->view("header.php");
         $this->load->view($url,$data);
         $this->load->view("footer.php");
 

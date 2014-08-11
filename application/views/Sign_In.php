@@ -56,7 +56,7 @@
                  </p>
                 <div>
                     <p>
-                        <input id="get_started" type="submit" value="GET STARTED!">
+                        <input id="get_started" type="submit" value="Sign In!">
 
                         <input id="CANCEL" type="reset" value="CANCEL"></p>
                 </div>
