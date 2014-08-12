@@ -13,54 +13,52 @@
 <body>
 
 <div id = "container">
-    <div id="grad1">
-    <header>
-        <figure>
-            <img src="<?php echo base_url();?>/images/GPS-image.jpg" id="image" alt="GPS">
-        </figure>
-    </header>
-
     <div id="content">
-        <div class="grad2">
-        <div id="sign_in_form">
-
+    <img id="sign_in" src="<?php echo base_url();?>/images/sign_in.jpg">
+          <div id="sign_in_form">
             <?php  echo form_open('main/login_validation');?>
             <?php  echo validation_errors(); ?>
-            <h2>Sign in to GPS </h2>
-            <div id="forms">
-                <?php
-                $data = array(
-                    'name'        => 'email',
-                    'id'          => 'email',
-                    'value'       => $this->input->post('email'),
-                    'maxlength'   => '255',
-                    'class' => 'input',
-                    'placeholder' => 'Email',
-                    'type' => 'text'
-                );
-                echo form_input($data);
-                ?>
-                 <p>
-                     <?php
-                     $data = array(
-                         'name'        => 'password',
-                         'id'          => 'password',
-                         'maxlength'   => '200',
-                         'class' => 'input',
-                         'placeholder' => 'Password',
-                         'type' => 'password',
-                         'title' => 'Password'
-                     );
-                     echo form_input($data);
-                     ?>
-                 </p>
-                <div>
-                    <p>
-                        <input id="get_started" type="submit" value="GET STARTED!">
 
-                        <input id="CANCEL" type="reset" value="CANCEL"></p>
-                </div>
-            </div>
+                <div id="forms">
+
+                    <?php
+                    $data = array(
+                        'name'        => 'email',
+                        'id'          => 'email',
+                        'value'       => $this->input->post('email'),
+                        'maxlength'   => '255',
+                        'class' => 'input',
+                        'placeholder' => 'Email',
+                        'type' => 'text'
+                    );
+                    echo form_input($data);
+                    ?>
+                     <p>
+                         <?php
+                         $data = array(
+                             'name'        => 'password',
+                             'id'          => 'password',
+                             'maxlength'   => '200',
+                             'class' => 'input',
+                             'placeholder' => 'Password',
+                             'type' => 'password',
+                             'title' => 'Password'
+                         );
+                         echo form_input($data);
+                         ?>
+                     </p>
+
+                    <div>
+
+                         <p>
+                            <input id="get_started" type="submit" value="GET STARTED!">
+
+                            <input id="CANCEL" type="reset" value="CANCEL">
+                         </p>
+
+                    </div> <!-- div -->
+                </div> <!-- forms -->
+
             <?php  echo form_close();?>
             <p id="forgot_password"><a href="<?php echo site_url('main/forgot_password')?>">Forgot Password?</a></p>
             <p id= "Gplus">Or sign up with: </p>
@@ -110,7 +108,7 @@
             ?>
 
         </div> <!-- sign_in_form -->
-        </div>
+
     </div> <!-- content --><br/><br/>
 </div> <!-- container -->
 </div>

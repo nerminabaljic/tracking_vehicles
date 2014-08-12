@@ -1,22 +1,17 @@
 body {
-    background: #efefef;
+    background: #3f3f3f;
     max-width: 100%;
     height: auto;
     font-family: Times New Roman;
 }
+
 #container {
-    text-align: center;
-    margin: 0 auto;
-    max-width: 800px;
+    text-align: left;
+    margin: 40px auto;
+    max-width: 1000px;
     width: 80%;
     height: auto;
-    border: 2px solid #737879;
-    background: #FFFFFF	;
-    box-shadow: 20px 20px 10px #A8A8A8;
-    padding: 5px;
-    height: 100%;
-    width: 100% ;
-    background: #3299BB;
+    position: relative;
 }
 img{
     text-align: center;
@@ -24,13 +19,5 @@ img{
     height: auto;
     width: auto;
 }
-#image{
-    height: 150px;
-    width: 80%;
-}
-.grad2{
-    padding: 5px;
-    height: 100%;
-    width: 100% ;
-    background: #efefef;
-}
+
+

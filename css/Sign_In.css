@@ -1,31 +1,25 @@
-#content{
-    text-align: center;
-    margin: 0 auto;
-    max-width: 400px;
-    width: 80%;
-    border: 2px solid #A8A8A8;
-    background: #FFFFFF;
-    border-radius: 3px;
-    box-shadow: 10px 10px 10px #A8A8A8;
+#sign_in_form{
+
+    padding: 150px;
+
+
 }
-#Gplus {
-    text-align: center;
-    margin: 0 auto;
-    max-width: 150px;
-    width: 80%;
-    padding-top: 4px;
-    padding-bottom: 4px;
+#sign_in{
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
 
 }
 #Gplus_picture{
-    margin: 0 auto;
     max-width: 20px;
     width: 80%;
     padding-top: 4px;
     padding-bottom: 4px;
 
 }
-#forms{line-height:200%;}
+
 .input{
     position: relative;
     padding: 9px;
@@ -57,9 +51,6 @@
 a {
     text-decoration: none;
     color: #42869b;
-}
-h2{
-    color: #1c566a;
 }
 
 p{
