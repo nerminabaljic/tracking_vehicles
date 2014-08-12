@@ -11,3 +11,15 @@
 table{
     margin-left: 15%;
 }
+.btn-default{
+    height:35px;
+    width: 90px ;
+    line-height: 35px;
+    text-decoration:none;
+    color: #fff !important;
+    background: #3299bb !important;
+}
+.btn-default:hover{
+    background: #f90 !important;
+    position: relative !important;
+}

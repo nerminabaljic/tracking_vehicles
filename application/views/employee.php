@@ -7,17 +7,8 @@
             <td align="center" id="position"></td>
             <td align="center" id="status"></td>
         </tr>
+         <a href = "<?php echo site_url('main/invite');?>"><input type="button" id="buttons" value="Invite employee"></a>
     </tbody>
-
-    <div id="invite"
-        <div class ="col-md-2">
-            <div id="navigation">
-                <ul class="top-level">
-                    <li class="invite"><a href = "<?php echo site_url('main/invite');?>">Invite employee</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
 <br>
 </table>
 
@@ -35,7 +26,7 @@
             <th>Mobile number</th>
             <th>Address</th>
             <th>Status</th>
-            <th>Action</th>
+            <th lang="100">Action</th>
         </tr>
         </thead>
 

@@ -1,5 +1,5 @@
 <div class ="col-md-8">
-    <h3> Invite employ </h3> <br>
+    <h3> Invite employee </h3> <br>
 
     <label id="greske" hidden></label>
 
