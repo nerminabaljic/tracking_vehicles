@@ -54,6 +54,18 @@ $this->db->insert_batch("user",$data);
     }
 
 
+    public  function  update_employee($data,$id){
+
+
+               $this->db->where("user_id",$id);
+              if($this->db->update("user",$data)) echo 'apdejtovao'; else 'neceeee';
+
+        return;
+
+
+    }
+
+
 
 
 }

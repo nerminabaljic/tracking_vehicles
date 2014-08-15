@@ -158,4 +158,35 @@ class Model_users extends CI_Model{
         }
 
     }
+
+    public function  get_user_byEmail($username){
+
+        $this->db->where('first_name',$username);
+        $query= $this->db->get('user');
+
+       // if(!$query->num_rows()==0) return true; else return false;
+        $ret= $query->row();
+
+        return $ret;
+
+    }
+
+    public  function get_vehicle_byID($id){
+
+        $this->db->where('vehicle_id',$id);
+        $query=$this->db->get('vehicle');
+
+        $ret=$query->row();
+
+        return $ret;
+    }
+
+    public function update_vehicle($vehicle){
+
+
+        $this->db->where("vehicle_id",$vehicle['vehicle_id']);
+        if($this->db->update("vehicle",$vehicle)) echo 'apdejtovao'; else 'neceeee';
+
+        return;
+    }
 }

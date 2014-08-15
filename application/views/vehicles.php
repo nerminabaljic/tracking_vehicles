@@ -38,8 +38,8 @@
                 <td><?php echo $key['vehicle_status'];?></td>
                 <td><?php echo $key['fuel_type'];?></td>
                 <td><?php echo $key['icon'];?></td>
-                <td><a href = "<?php echo site_url('main/edit_vehicles');?>">Edit</a>  <a href="" class="editor_remove">Delete</a></td>
-              
+                <td><a href = "<?php $id=$key['vehicle_id']; echo 'edit_vehicles/'.$id;?>">Edit</a>  <a href="" class="editor_remove">Delete</a></td>
+
             </tr>
          <?php }?>
         </tbody>
