@@ -75,7 +75,7 @@
             );
 
             $openid->returnUrl = base_url();?>
-            <a href="<?php echo $openid->authUrl() ?>"><img id="Gplus_picture" src="<?php echo base_url();?>/images/g+.png"></a> <br/>
+            <a href="<?php echo $openid->authUrl() ?>"><img id="Gplus_picture" src="<?php echo base_url();?>/images/g+.png"></a>
             <?php
 
             $openid = new LightOpenID("localhost");
