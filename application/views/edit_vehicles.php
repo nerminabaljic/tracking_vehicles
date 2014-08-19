@@ -1,5 +1,5 @@
 <section>
-    <h2 style="color:#585858 ">Add Vehicle </h2>
+    <h2 style="color:#585858 ">Vehicle profile </h2>
 
     <div class="table-responsive">
         <div style="position:relative">
@@ -16,23 +16,26 @@
 
 
     <div id="profile">
+        <?php  echo form_open('main/update_vehicle');?>
+
+        <input type="text" name="id" value="<?php echo $vehicle_id;?>" hidden="true"/>
         <ul>
             <li>
                 <label for="name">Name of vehicle:</label>
-                <input type="text" name="name" />
+                <input type="text" name="vname" value="<?php echo $vehicle_name;?>" />
             </li>
             <li>
-                <label for="name">Registration marks:</label>
-                <input type="text" name="name" />
+                <label for="name">Licence plates:</label>
+                <input type="text" name="lplates" value="<?php echo $licence_plates;?>"/>
             </li>
             <li>
                 <label for="name">Date of last registration:</label>
-                <input  type="text" onfocus="(this.type='date')" onblur="(this.type='text')" value="<?php $this->input->post('date_of_lst_registration'); ?>">
+                <input  type="text" onfocus="(this.type='date')" onblur="(this.type='text')" value="<?php echo $registration_date;?>" name="reg_date">
             </li>
             <li>
                 <label for="name">Type of vehicle:</label>
-                <select>
-                    <option></option>
+                <select name="vtype">
+                    <option><?php echo $vehicle_type;?></option>
                     <option>Limousine</option>
                     <option>Caravan</option>
                     <option>Lorry</option>
@@ -40,23 +43,23 @@
             </li>
             <li>
                 <label for="name">Status</label>
-                <select >
-                    <option></option>
+                <select name="vstatus">
+                    <option><?php echo $vehicle_status;?></option>
                     <option>Active</option>
                     <option>Inactive</option>
                 </select>
             </li>
             <li>
                 <label for="name">Fuel type</label>
-                <select >
-                    <option></option>
+                <select name="ftype">
+                    <option><?php echo $fuel_type;?></option>
                     <option>Diesel</option>
                     <option>Benzine</option>
                 </select>
             </li>
             <li>
                 <label for="name">Icon</label>
-                <select >
+                <select name="icon" >
                     <option></option>
                     <option></option>
                     <option></option>
@@ -65,6 +68,7 @@
         </ul>
     </div>
 
+    <input class="btn btn-default" type="submit" value="UPDATE" name="UPDATE">
 
     <br><br><br>
 </section>

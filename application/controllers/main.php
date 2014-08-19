@@ -8,21 +8,24 @@ class Main extends CI_Controller {
 	 *
 	 * Maps to the following URL
 	 * 		http://example.com/index.php/welcome
-	 *	- or -  
+	 *	- or -
 	 * 		http://example.com/index.php/welcome/index
 	 *	- or -
-	 * Since this controller is set as the default controller in 
+	 * Since this controller is set as the default controller in
 	 * config/routes.php, it's displayed at http://example.com/
 	 *
 	 * So any other public methods not prefixed with an underscore will
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+   var $id=0;
 	public function index()
 	{
 		$this->login();
 
 	}
+
+
 
 
     public function login(){
@@ -227,12 +230,28 @@ class Main extends CI_Controller {
 
     }
 
-    public function edit_employee(){
-        $this->loadPage("edit_employee.php");
+    public function edit_employee($username){
+
+        echo $username;
+        $this->load->model('model_users');
+        if($data= $this->model_users->get_user_byEmail($username)){
+
+            echo 'radi';
+        }else echo'ne radi';
+
+
+
+        $this->loadPageWithData("edit_employee.php",$data);
+
     }
 
-    public function edit_vehicles(){
-        $this->loadPage("edit_vehicles.php");
+    public function edit_vehicles($id){
+        $this->load->model('model_users');
+        $data=$this->model_users->get_vehicle_byID($id);
+
+        echo $data->vehicle_name;
+        $this->loadPageWithData("edit_vehicles.php",$data);
+
     }
     public function maps(){
         $this->loadPage("karta.php");
@@ -252,6 +271,90 @@ class Main extends CI_Controller {
         $this->load->view($url,$data);
         $this->load->view("footer.php");
 
+
+    }
+
+    public function update_employee(){
+
+
+
+        if($this->input->post('UPDATE')!=''){
+
+            $id=$this->input->post('id');
+            $fname=$this->input->post('fname');
+            $lname=$this->input->post('lname');
+            $email=$this->input->post('email');
+            $birthday=$this->input->post('birthday');
+            $gender=$this->input->post('gender');
+            $position=$this->input->post('position');
+            $mobile=$this->input->post('mobile');
+            $address=$this->input->post('address');
+           if($this->input->post('status')== 'Active'){ $status=1;}else $status=0;
+
+            $user= array(
+                'user_id'    => $id,
+                'first_name' => $fname,
+                'last_name'  => $lname,
+                'email'      => $email,
+                'birthday'   => $birthday,
+                'sex'        => $gender,
+                'work_place' => $position,
+                'phone'      => $mobile,
+                'address'    => $address,
+               'status'     => $status,
+
+
+            );
+
+            /*$this->db->where("user_id",$this->id);
+            $this->db->update("user",$user);*/
+
+            //echo $user['user_id'];
+
+
+            $this->load->model('get_db');
+            $this->get_db->update_employee($user,$user['user_id']);
+
+            $this->load->view("header.php");
+            $this->load->view("Success_emp.php");
+            $this->load->view("footer.php");
+
+
+    }
+    }
+
+    public function update_vehicle (){
+        if($this->input->post('UPDATE')!=''){
+            $id=$this->input->post('id');
+            $vname=$this->input->post('vname');
+            $lplates=$this->input->post('lplates');
+            $regdate=$this->input->post('reg_date');
+            $vtype=$this->input->post('vtype');
+            $ftype=$this->input->post('ftype');
+            $vstatus=$this->input->post('vstatus');
+
+            $vehicle=array(
+                'vehicle_id'    => $id,
+                'vehicle_name'  => $vname,
+                'vehicle_type'  => $vtype,
+                'vehicle_status'=> $vstatus,
+                'licence_plates'=> $lplates,
+                'registration_date' => $regdate,
+                'fuel_type'     => $ftype,
+
+            );
+
+
+            $this->load->model('model_users');
+            $this->model_users->update_vehicle($vehicle);
+
+            $this->load->view("header.php");
+            $this->load->view("Success_veh.php");
+            $this->load->view("footer.php");
+
+
+        }
+
     }
 
 
@@ -259,6 +362,7 @@ class Main extends CI_Controller {
         $this->load->view("test.php");
     }
 }
+
 
 
 /* End of file main.php */
