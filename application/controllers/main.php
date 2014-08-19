@@ -2,7 +2,6 @@
 
 
 class Main extends CI_Controller {
-
 	/**
 	 * Index Page for this controller.
 	 *
@@ -53,8 +52,9 @@ class Main extends CI_Controller {
 
         if($this->form_validation->run() ){
 
-            if($this->validate_credentials($this->input->post('email'),$this->input->post('password'))) {
+            if($this->validate_credentials($this->input->post('email'),$this->input->post('password'))){
                 $this->set_session();
+                echo 'radii';
                     redirect('main/maps');
             }
         }
@@ -75,7 +75,10 @@ class Main extends CI_Controller {
     public function validate_credentials($email,$pass){
         $this->load->model('model_users');
 
+
+
         if($this->model_users->can_log_in($email,$pass)){
+            echo 'mozeee';
             return true;
         }
         else{
@@ -232,7 +235,7 @@ class Main extends CI_Controller {
 
     public function edit_employee($username){
 
-        echo $username;
+       // echo $username;
         $this->load->model('model_users');
         if($data= $this->model_users->get_user_byEmail($username)){
 
@@ -261,7 +264,7 @@ class Main extends CI_Controller {
         $this->load->view("navigation.php");
         $this->load->view("header.php");
         $this->load->view($url);
-        $this->load->view("footer.php");
+     //   $this->load->view("footer.php");
     }
 
     public function  loadPageWithData($url, $data)
@@ -269,7 +272,7 @@ class Main extends CI_Controller {
         $this->load->view("navigation.php");
         $this->load->view("header.php");
         $this->load->view($url,$data);
-        $this->load->view("footer.php");
+        //$this->load->view("footer.php");
 
 
     }
@@ -324,7 +327,30 @@ class Main extends CI_Controller {
     }
 
     public function update_vehicle (){
-        if($this->input->post('UPDATE')!=''){
+
+        $this->load->helper(array('form', 'url'));
+
+
+
+
+
+        if( $this->input->post('UPDATE')!='' ){
+
+            $config['upload_path'] = './media/vehicle/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size']	= '100';
+            $config['max_width']  = '1024';
+            $config['max_height']  = '768';
+
+            $this->load->library('upload', $config);
+
+            if($this->upload->do_upload()){
+                echo 'uploadovao';
+                $data = array('upload_data' => $this->upload->data());
+                $photo=$data['upload_data']['file_name'];
+                //$this->load->view('upload_success', $data);
+            }else $photo=$this->input->post('vphoto');
+
             $id=$this->input->post('id');
             $vname=$this->input->post('vname');
             $lplates=$this->input->post('lplates');
@@ -341,6 +367,7 @@ class Main extends CI_Controller {
                 'licence_plates'=> $lplates,
                 'registration_date' => $regdate,
                 'fuel_type'     => $ftype,
+                'photo'         => $photo,
 
             );
 
@@ -356,6 +383,22 @@ class Main extends CI_Controller {
         }
 
     }
+
+    public function delete_vehicles($id){
+
+        $this->load->model('model_users');
+        $data=$this->model_users->get_vehicle_byID($id);
+
+
+        $this->model_users->delete_vehicle($data);
+
+        $this->vehicles();
+
+    }
+
+
+
+
 
 
     public  function  test(){

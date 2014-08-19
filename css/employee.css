@@ -6,17 +6,21 @@ td{
     overflow:hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
 }
 #buttons{
-    margin-top: 20px;
+    margin-top: 35px;
     float: right;
     clear: both;
     height:40px;
     width: 130px ;
-    line-height: 40px;
+
     text-decoration:none;
     color: #fff;
     background-color: #3299bb;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+
 }
 #buttons:hover{
     background: #f90;

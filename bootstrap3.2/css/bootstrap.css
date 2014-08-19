@@ -2738,6 +2738,7 @@ select[multiple].input-lg {
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
+    text-align: center;
 }
 .btn:focus,
 .btn:active:focus,
@@ -2969,6 +2970,7 @@ fieldset[disabled] .btn-warning.active {
   background-color: #f0ad4e;
   border-color: #eea236;
 }
+
 .btn-warning .badge {
   color: #f0ad4e;
   background-color: #fff;
@@ -4444,7 +4446,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   font-size: 75%;
   font-weight: bold;
   line-height: 1;
-  color: #fff;
+  color: #424242;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;

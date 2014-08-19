@@ -67,8 +67,8 @@
 
     </div>
     <br>
-    <input class="btn btn-default" type="submit" value="UPDATE" name="UPDATE">
-    <input class="btn btn-default" type="reset" value="CANCEL" name="CANCEL">
+    <input class="btn btn-info" type="submit" value="UPDATE" name="UPDATE">
+    <input class="btn btn-info" type="reset" value="CANCEL" name="CANCEL">
     <?php  echo form_close();?>
     <br><br><br><br><br><br>
 

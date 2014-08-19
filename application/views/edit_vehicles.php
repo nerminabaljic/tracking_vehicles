@@ -2,15 +2,15 @@
     <h2 style="color:#585858 ">Vehicle profile </h2>
 
     <div class="table-responsive">
+        <?php echo form_open_multipart('main/update_vehicle');?>
         <div style="position:relative">
-            <img src="<?php echo base_url();?>/images/car.jpg" id="profile-avatar" alt="Image for Profile">
+            <?php if($photo!=''){$image=base_url()."media/vehicle/".$photo;}else{$image=base_url()."images/car.jpg"; $photo="default.jpg";}?>
+            <img src="<?php echo $image;?>" id="profile-avatar" alt="Image for Profile">
 
-            <a class='btn btn-default' href='javascript:;'>
-                <input type="file" class="file" name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
-                Insert a picture
-            </a>
-            &nbsp;
-            <span class='label label-info' id="upload-file-info"></span>
+            <br><br><br><br><br><br><br><br><br>
+            <input  type="file" name="userfile" size="20"  />
+            <br>
+
         </div>
     </div>
 
@@ -19,6 +19,7 @@
         <?php  echo form_open('main/update_vehicle');?>
 
         <input type="text" name="id" value="<?php echo $vehicle_id;?>" hidden="true"/>
+        <input type="text" name="vphoto" value="<?php echo $photo;?>" hidden="true" />
         <ul>
             <li>
                 <label for="name">Name of vehicle:</label>
@@ -65,7 +66,14 @@
                     <option></option>
                 </select>
             </li>
+
+
         </ul>
+
+
+
+
+
     </div>
 
     <input class="btn btn-default" type="submit" value="UPDATE" name="UPDATE">

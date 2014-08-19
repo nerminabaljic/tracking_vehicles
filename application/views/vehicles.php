@@ -1,13 +1,14 @@
 
 <div class ="col-md-9">
-    <table id="filteri_vozila" style="width: 50%; margin: 1em;" cellpadding="3" cellspacing="0" border="0">
+    <table id="filteri_vozila" style="width: 60%; margin: 1em;" cellpadding="3" cellspacing="0" border="0">
         <tbody>
             <tr>
                 <td align="center" id="registration"></td>
                 <td align="center" id="type"></td>
                 <td align="center" id="vehicle_status"></td>
             </tr>
-            <a href = "<?php echo site_url('main/create_vehicles');?>"><input type="button" id="buttons" value="Create vehicle"></a>
+   <a  href = "<?php echo site_url('main/create_vehicles');?>"class="btn btn-inverse"  id="buttons"><span class="glyphicon glyphicon-plus"></span> New vehicle</a>
+
         </tbody>
     <br>
  </table>
@@ -38,7 +39,7 @@
                 <td><?php echo $key['vehicle_status'];?></td>
                 <td><?php echo $key['fuel_type'];?></td>
                 <td><?php echo $key['icon'];?></td>
-                <td><a href = "<?php $id=$key['vehicle_id']; echo 'edit_vehicles/'.$id;?>">Edit</a>  <a href="" class="editor_remove">Delete</a></td>
+                <td><a class="btn btn-info" href = "<?php $id=$key['vehicle_id']; /*echo 'edit_vehicles/'.$id;*/ echo base_url()."main/edit_vehicles/".$id;?>"><i class="fa fa-pencil-square-o"></i></a> <a href="<?php $id=$key['vehicle_id']; echo base_url().'main/delete_vehicles/'.$id;?>"  class="btn btn-danger"> <i class="fa fa-trash-o fa-lg"></i></a></td>
 
             </tr>
          <?php }?>

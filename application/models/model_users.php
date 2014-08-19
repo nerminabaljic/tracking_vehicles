@@ -22,15 +22,16 @@ class Model_users extends CI_Model{
 	   }
 	 }
     public function can_log_in($email,$pass){
-        $this->db->from('user');
+
+
         $this->db->where('email', $email);
-        $this->db->where('password', $pass);
+        $this->db->where('password',$pass);
+        $login = $this->db->get('user')->result();
 
-        $login = $this->db->get()->result();
 
-        if(is_array($login) && count($login)==1)
+        if(count($login)>=1)
         {
-            return true;
+              return true;
         }
         else
             return false;
@@ -186,6 +187,14 @@ class Model_users extends CI_Model{
 
         $this->db->where("vehicle_id",$vehicle['vehicle_id']);
         if($this->db->update("vehicle",$vehicle)) echo 'apdejtovao'; else 'neceeee';
+
+        return;
+    }
+
+    public function delete_vehicle($vehicle){
+
+        $this->db->where("vehicle_id", $vehicle->vehicle_id);
+        $this->db->delete("vehicle");
 
         return;
     }
