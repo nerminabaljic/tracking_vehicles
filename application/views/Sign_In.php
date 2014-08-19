@@ -20,7 +20,7 @@
             <?php  echo validation_errors(); ?>
 
                 <div id="forms">
-
+                     <p>E-mail: &nbsp; &nbsp;&nbsp;&nbsp;
                     <?php
                     $data = array(
                         'name'        => 'email',
@@ -33,7 +33,9 @@
                     );
                     echo form_input($data);
                     ?>
+                     </p>
                      <p>
+                         Password:&nbsp;
                          <?php
                          $data = array(
                              'name'        => 'password',
@@ -46,12 +48,13 @@
                          );
                          echo form_input($data);
                          ?>
+                         <a href="<?php echo site_url('main/forgot_password')?>"><img id="forgot_password_picture" src="<?php echo base_url();?>/images/forgot-password1.PNG"></a>
                      </p>
 
-                    <div>
+                    <div id="">
 
                          <p>
-                            <input id="get_started" type="submit" value="GET STARTED!">
+                            <input id="get_started" type="submit" value="SIGN IN ">
 
                             <input id="CANCEL" type="reset" value="CANCEL">
                          </p>
@@ -60,8 +63,8 @@
                 </div> <!-- forms -->
 
             <?php  echo form_close();?>
-            <p id="forgot_password"><a href="<?php echo site_url('main/forgot_password')?>">Forgot Password?</a></p>
-            <p id= "Gplus">Or sign up with: </p>
+
+            <p id= "Gplus">
             <?php // index.php
             require_once 'openid.php';
             $openid = new LightOpenID("localhost");
@@ -72,7 +75,7 @@
             );
 
             $openid->returnUrl = base_url();?>
-            <a href="<?php echo $openid->authUrl() ?>"><img id="Gplus_picture" src="<?php echo base_url();?>/images/Gplus.png"></a> <br/>
+            <a href="<?php echo $openid->authUrl() ?>"><img id="Gplus_picture" src="<?php echo base_url();?>/images/g+.png"></a> <br/>
             <?php
 
             $openid = new LightOpenID("localhost");
@@ -106,10 +109,9 @@
 
             }
             ?>
-
+           </p>
         </div> <!-- sign_in_form -->
-
-    </div> <!-- content --><br/><br/>
+    </div> <!-- content -->
 </div> <!-- container -->
 </div>
 </body>

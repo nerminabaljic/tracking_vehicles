@@ -10,8 +10,10 @@ body {
     margin: 40px auto;
     max-width: 1000px;
     width: 80%;
-    height: auto;
     position: relative;
+}
+#content{
+    height: auto;
 }
 img{
     text-align: center;
