@@ -48,7 +48,7 @@
                          );
                          echo form_input($data);
                          ?>
-                         <a href="<?php echo site_url('main/forgot_password')?>"><img id="forgot_password_picture" src="<?php echo base_url();?>/images/forgot-password1.PNG"></a>
+
                      </p>
 
                     <div id="">
@@ -57,6 +57,7 @@
                             <input id="get_started" type="submit" value="SIGN IN ">
 
                             <input id="CANCEL" type="reset" value="CANCEL">
+                             <a href="<?php echo site_url('main/forgot_password')?>"><p id="forgot">Forgot password?</p></a>
                          </p>
 
                     </div> <!-- div -->
