@@ -7,7 +7,7 @@
             <td align="center" id="position"></td>
             <td align="center" id="status"></td>
         </tr>
-         <a href = "<?php echo site_url('main/invite');?>"><input type="button" id="buttons" value="Invite employee"></a>
+         <a href = "<?php echo site_url('main/invite');?>" class="btn btn-inverse"  id="buttons"><span class="glyphicon glyphicon-plus"></span> Invite employee</a>
     </tbody>
 <br>
 </table>
@@ -44,7 +44,8 @@
                 <td></td>
                 <td></td>
                 <td>Aktivan</td>
-                <td><a href = "<?php $username=$row['FirstName']; echo 'edit_employee/'.$username;?>">Edit</a>  <a href="" class="editor_remove">Delete</a></td>
+                <td><a class="btn btn-info" href = "<?php $username=$row['FirstName']; echo 'edit_employee/'.$username;?>"><i class="fa fa-pencil-square-o"></i></a>  <a href="" class="btn btn-danger"> <i class="fa fa-trash-o fa-lg"></i></a></td>
+
             </tr>
         <?php }?>
         </tbody>
