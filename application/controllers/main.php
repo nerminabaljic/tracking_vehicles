@@ -47,20 +47,22 @@ class Main extends CI_Controller {
     public function login_validation(){
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('email','Email', 'required|trim|xss_clean|callback_validate_credentials');
+        $this->form_validation->set_rules('username','Username', 'required|trim|xss_clean|callback_validate_credentials');
         $this->form_validation->set_rules('password','Password', 'required|md5');
 
         if($this->form_validation->run() ){
+            $data = array(
+                'username' => $this->input->post('username'),
+                'is_logged_in' => true
 
-            if($this->validate_credentials($this->input->post('email'),$this->input->post('password'))){
-                $this->set_session();
-                echo 'radii';
-                    redirect('main/maps');
-            }
+            );
+            $this->session->set_userdata($data);
+            redirect('main/maps');
         }
         else{
             $this->load->view("Sign_In");
         }
+
     }
     public function set_session()
     {
@@ -72,13 +74,10 @@ class Main extends CI_Controller {
         );
     }
 
-    public function validate_credentials($email,$pass){
+    public function validate_credentials(){
         $this->load->model('model_users');
 
-
-
-        if($this->model_users->can_log_in($email,$pass)){
-            echo 'mozeee';
+        if($this->model_users->can_log_in()){
             return true;
         }
         else{
@@ -239,8 +238,7 @@ class Main extends CI_Controller {
         $this->load->model('model_users');
         if($data= $this->model_users->get_user_byEmail($username)){
 
-            echo 'radi';
-        }else echo'ne radi';
+           }else echo'ne radi';
 
 
 
@@ -252,7 +250,7 @@ class Main extends CI_Controller {
         $this->load->model('model_users');
         $data=$this->model_users->get_vehicle_byID($id);
 
-        echo $data->vehicle_name;
+
         $this->loadPageWithData("edit_vehicles.php",$data);
 
     }
@@ -280,8 +278,22 @@ class Main extends CI_Controller {
     public function update_employee(){
 
 
+        if( $this->input->post('UPDATE')!='' ){
 
-        if($this->input->post('UPDATE')!=''){
+            $config['upload_path'] = './media/employee/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size']	= '100';
+            $config['max_width']  = '1024';
+            $config['max_height']  = '768';
+
+            $this->load->library('upload', $config);
+
+            if($this->upload->do_upload()){
+                echo 'uploadovao';
+                $data = array('upload_data' => $this->upload->data());
+                $photo=$data['upload_data']['file_name'];
+                //$this->load->view('upload_success', $data);
+            }else $photo=$this->input->post('uphoto');
 
             $id=$this->input->post('id');
             $fname=$this->input->post('fname');
@@ -292,6 +304,7 @@ class Main extends CI_Controller {
             $position=$this->input->post('position');
             $mobile=$this->input->post('mobile');
             $address=$this->input->post('address');
+
            if($this->input->post('status')== 'Active'){ $status=1;}else $status=0;
 
             $user= array(

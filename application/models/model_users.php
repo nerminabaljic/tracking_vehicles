@@ -21,20 +21,19 @@ class Model_users extends CI_Model{
     	     return false;
 	   }
 	 }
-    public function can_log_in($email,$pass){
+    public function can_log_in(){
+        $this->db->where('email', $this->input->post('email'));
+        $this->db->where('password', md5($this->input->post('password')));
 
+        $query = $this->db->get('user');
 
-        $this->db->where('email', $email);
-        $this->db->where('password',$pass);
-        $login = $this->db->get('user')->result();
-
-
-        if(count($login)>=1)
-        {
-              return true;
+        if($query->num_rows()==1){
+            return true;
         }
-        else
+        else{
             return false;
+        }
+
 
     }
 
@@ -122,12 +121,14 @@ class Model_users extends CI_Model{
 
             $row = $temp_user->row();
 
+            $status=1;
             $data = array(
                 'email' => $row->email,
                 'first_name' =>$row->FirstName,
                 'last_name' => $row->LastName,
                 'password'=>$row->password,
-                'username' =>$row->FirstName.$row->LastName
+                'username' =>$row->FirstName.$this->random_str(2),
+                'status'    =>$status,
 
             );
             $did_add_user = $this->db->insert('user', $data);
@@ -141,9 +142,15 @@ class Model_users extends CI_Model{
         }else return false;
     }
 
+    public function random_str($length=2){
+        $chars = "0123456789";
+        $password = substr( str_shuffle( $chars ), 0, $length );
+        return $password;
+    }
+
     public function  view_invited_user()
     {
-        return $query = $this->db->get_where('invite_user', array('accepted' => 1));
+        return $query = $this->db->get_where('invite_user', array('accepted' =>1));
 
     }
 

@@ -13,58 +13,29 @@
 <body>
 
 <div id = "container">
+    <header>
+        <figure>
+            <img src="<?php echo base_url();?>/images/heading.png" alt="GPS">
+        </figure>
+    </header>
+
     <div id="content">
-    <img id="sign_in" src="<?php echo base_url();?>/images/sign_in.jpg">
-          <div id="sign_in_form">
+        <div id="sign_in_form">
+
             <?php  echo form_open('main/login_validation');?>
             <?php  echo validation_errors(); ?>
+            <h2>Sign in to GPS </h2>
+            <div id="forms">
+                <input class="input" id="username" type="text" name="username" placeholder= "Username">
+                <p><input class="input" id="password" type="password" name="password" title="Password" size="10" placeholder= "Password"/></p>
+                <div>
+                    <p><input id="get_started" type="submit" value="GET STARTED!">
+                        <input id="CANCEL" type="reset" value="CANCEL"></p>
+                </div>
+            </div>
 
-                <div id="forms">
-                     <p>E-mail: &nbsp; &nbsp;&nbsp;&nbsp;
-                    <?php
-                    $data = array(
-                        'name'        => 'email',
-                        'id'          => 'email',
-                        'value'       => $this->input->post('email'),
-                        'maxlength'   => '255',
-                        'class' => 'input',
-                        'placeholder' => 'Email',
-                        'type' => 'text'
-                    );
-                    echo form_input($data);
-                    ?>
-                     </p>
-                     <p>
-                         Password:&nbsp;
-                         <?php
-                         $data = array(
-                             'name'        => 'password',
-                             'id'          => 'password',
-                             'maxlength'   => '200',
-                             'class' => 'input',
-                             'placeholder' => 'Password',
-                             'type' => 'password',
-                             'title' => 'Password'
-                         );
-                         echo form_input($data);
-                         ?>
-                         <a href="<?php echo site_url('main/forgot_password')?>"><img id="forgot_password_picture" src="<?php echo base_url();?>/images/forgot-password1.PNG"></a>
-                     </p>
-
-                    <div id="">
-
-                         <p>
-                            <input id="get_started" type="submit" value="SIGN IN ">
-
-                            <input id="CANCEL" type="reset" value="CANCEL">
-                         </p>
-
-                    </div> <!-- div -->
-                </div> <!-- forms -->
-
-            <?php  echo form_close();?>
-
-            <p id= "Gplus">
+            <p id="forgot_password"><a href="<?php echo site_url('main/forgot_password')?>">Forgot Password?</a></p>
+            <p id= "Gplus">Or sign up with: </p>
             <?php // index.php
             require_once 'openid.php';
             $openid = new LightOpenID("localhost");
@@ -75,7 +46,7 @@
             );
 
             $openid->returnUrl = base_url();?>
-            <a href="<?php echo $openid->authUrl() ?>"><img id="Gplus_picture" src="<?php echo base_url();?>/images/g+.png"></a>
+            <a href="<?php echo $openid->authUrl() ?>"><img id="Gplus_picture" src="<?php echo base_url();?>/images/Gplus.png"></a> <br/>
             <?php
 
             $openid = new LightOpenID("localhost");
@@ -95,7 +66,7 @@
                         $row = mysql_fetch_array($result);
 
                         $usr = array(
-                            'email' =>$email,
+                            'username' => $email,
                             'is_logged_in' => 1
 
                         );
@@ -109,10 +80,17 @@
 
             }
             ?>
-           </p>
+
+            <?php  echo form_close();?>
         </div> <!-- sign_in_form -->
-    </div> <!-- content -->
+    </div> <!-- content --><br/><br/>
+
+
 </div> <!-- container -->
-</div>
+
+
+
 </body>
+
+
 </html>

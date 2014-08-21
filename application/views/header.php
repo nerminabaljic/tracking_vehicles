@@ -4,6 +4,7 @@
     <title> GPS tracking vehicles </title>
     <meta charset= "utf-8">
 
+
     <meta name= "viewport" content= "width= device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/css/header.css">
@@ -50,7 +51,10 @@
 </head>
 <body>
     <header>
-            <div id="row"></div>
+        <?php $ci =& get_instance(); ?>
+            <div id="row" > <div class="col-md-9" id="wellcome"><?php print 'Welcome  '.$ci->session->userdata('username').'  | ';?> <a class="white-link" href = "<?php echo base_url()."main/logout";?>"> <i class="fa fa-sign-out fa-fw"></i>Logout</a></div></div>
+
+
           <!--  <figure>
                 <img src="<?php echo base_url();?>/images/GPS-image.jpg" id="image" alt="GPS">
             </figure>-->

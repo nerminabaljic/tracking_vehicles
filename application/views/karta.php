@@ -1,4 +1,5 @@
 <! Ucitavanje karte !>
+<div class ="col-md-9">
 
 <div id="map-canvas"/>
 
@@ -72,7 +73,7 @@
 
 </script>
 
-
+</div>
 </div>
 <br><br><br>
 

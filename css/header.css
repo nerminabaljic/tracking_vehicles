@@ -3,11 +3,26 @@ body {
     text-align: center;
     margin-top: 50px;
 }
+#wellcome{
+
+    margin-top: 10px;
+
+}
+
+a.white-link{
+    color: white;
+    text-decoration: none;
+
+}
+a.white-link:hover{
+    color: #428bca;
+}
 #row{
     width: 100%;
     height: 100%;
-    text-align: left;
+    text-align: right;
     background-color: #424242;
+    color: #ffffff;
 }
 header{
     background-color: #3299BB !important;

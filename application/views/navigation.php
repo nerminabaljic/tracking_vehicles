@@ -3,8 +3,8 @@
 
 
         <div class ="col-md-2">
-          <div id="navigation">
-             <div class="list-group">
+            <div id="navigation">
+                   <div class="list-group">
             <ul class="fa-ul">
                 <li><a  href = "<?php echo site_url('main/employee');?>" ><i class="fa fa-user fa-2x fa-fw"></i>  Employees</a></li>
                 <li><a  href = "<?php echo site_url('main/vehicles');?>"><i class="fa fa-car fa-2x fa-fw"></i>  Vehicles</a></li>

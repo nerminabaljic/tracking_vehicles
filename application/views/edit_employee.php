@@ -6,18 +6,8 @@
         <div style="position:relative;">
             <img src="<?php echo base_url();?>/images/default_user_icon.jpg" id="profile-avatar" alt="Image for Profile"/>
 
-
-                <input type="file"  class="file" name="userfile" size="20"/>
-                <br>
-
-
-                <input type="submit" name="upload" value="Upload"/><br>
-
-
-
-
-
-            <span class='label label-info' id="upload-file-info"></span>
+            <br><br><br><br><br><br><br><br>
+            <input  type="file" name="userfile" size="20"  />
 
 
         </div>
@@ -27,6 +17,8 @@
     <div id="profile">
         <?php  echo form_open('main/update_employee');?>
         <input type="text" name="id" value="<?php echo $user_id;?>" hidden="true"/>
+
+        <input type="text" name="uphoto" value="<?php echo $photo;?>" hidden="true" />
         <ul>
             <li>
                 <label for="name">First name:</label>
