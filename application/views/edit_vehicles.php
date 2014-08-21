@@ -7,8 +7,11 @@
             <?php if($photo!=''){$image=base_url()."media/vehicle/".$photo;}else{$image=base_url()."images/car.jpg"; $photo="default.jpg";}?>
             <img src="<?php echo $image;?>" id="profile-avatar" alt="Image for Profile">
 
-            <br><br><br><br><br><br><br><br><br>
-            <input  type="file" name="userfile" size="20"  />
+            <a class='btn btn-default' href='javascript:;'>
+                <input type="file" class="file" name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+                Insert a picture
+            </a>
+
             <br>
 
         </div>
