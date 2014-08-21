@@ -19,10 +19,10 @@ form{
 
 }
 #Gplus_picture{
-    max-width: 170px;
-    height: 60px;
+    max-width: 180px;
+    height: 50px;
     width: 100%;
-    margin-left: 40px;
+    margin-left: 68px;
 }
 
 .input{
@@ -41,15 +41,16 @@ form{
     color:white;
     position: relative;
     padding: 9px;
-    max-width: 120px;
-    width: 80%;
+    max-width: 110px;
+    width: 70%;
     background: #605e5e;
+    margin-left: 70px;
 }
 #CANCEL{
     position: relative;
     padding: 9px;
-    max-width: 120px;
-    width: 80%;
+    max-width: 110px;
+    width: 70%;
     background:#605e5e;
     color: white;
 
@@ -57,19 +58,17 @@ form{
 a {
     text-decoration: none;
     color: #42869b;
-
 }
-
 p{
     color: #1c566a;
     margin-top: 0;
-}
-#forgot_password_picture{
-
-    width: 50px;
-    height: 50px;
 
 }
+#forgot{
+
+    margin-left: 70px;
+}
+
 
 
 
